@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge", "Bridge\Bridge.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composite", "Composite\Composite.csproj", "{19E80902-850E-4700-9B50-5B11BFA7D228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lInterpreter", "Interpreter\lInterpreter.csproj", "{420082E0-B3C8-4B60-A738-BC2D54831224}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lnterpreter", "Interpreter\lnterpreter.csproj", "{420082E0-B3C8-4B60-A738-BC2D54831224}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D2AD949A-9DD0-49BB-BE81-35B442221544}"
 	ProjectSection(SolutionItems) = preProject
