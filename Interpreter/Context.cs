@@ -5,7 +5,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicalInterpreter
+namespace DesignPatterns.Interpreter
 {
     public class Context
     {
