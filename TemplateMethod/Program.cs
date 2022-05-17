@@ -8,19 +8,17 @@ namespace DesignPatterns.TemplateMethod
 {
     public enum SquareState
     {
-        Default,
+        Initial,
         Missed,
         Hit,
         Sunken
     }
 
-    struct Square
+    class Square
     {
-        SquareState squareState;
-
         public SquareState SquareState
         {
-            get { return squareState; }
+            get; set;
         }
     }
 
@@ -39,7 +37,7 @@ namespace DesignPatterns.TemplateMethod
 
         public readonly int Rows;
         public readonly int Columns;
-        protected readonly Square?[,] squares;
+        protected readonly Square[,] squares;
 
         private List<List<Square>> GetHorizontalPlacements(int length)
         {
@@ -50,9 +48,9 @@ namespace DesignPatterns.TemplateMethod
                 for (int c = 0; c < Columns; ++c)
                 {
                     // instead of this:
-                    // if (squares[r, c] != null && squares[r, c].Value.SquareState == SquareState.Default)
+                    // if (squares[r, c] != null && squares[r, c].SquareState == SquareState.Initial
                     if (IsSquareAvailable(r, c))
-                        gathered.Enqueue(squares[r, c].Value);
+                        gathered.Enqueue(squares[r, c]);
                     else
                         gathered.Clear();
 
@@ -78,15 +76,15 @@ namespace DesignPatterns.TemplateMethod
         }
     }
 
-    class EvidenceGrid : Grid
+    class EnemyGrid : Grid
     {
-        public EvidenceGrid(int rows, int columns) : base(rows, columns)
+        public EnemyGrid(int rows, int columns) : base(rows, columns)
         {
 
         }
         protected override bool IsSquareAvailable(int row, int column)
         {
-            return squares[row, column].Value.SquareState == SquareState.Default;
+            return squares[row, column].SquareState == SquareState.Initial;
         }
     }
     class Program

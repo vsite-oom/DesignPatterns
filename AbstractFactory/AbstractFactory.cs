@@ -71,25 +71,25 @@ namespace DesignPatterns.AbstractFactory
 
     class Fleet { }
 
-class Game
-{
-    public Game(IGameItemFactory gameItemFactory)
+    class Game
     {
-        this.gameItemFactory = gameItemFactory;
-    }
+        public Game(IGameItemFactory gameItemFactory)
+        {
+            this.gameItemFactory = gameItemFactory;
+        }
 
-    private IGameItemFactory gameItemFactory;
+        private IGameItemFactory gameItemFactory;
 
-    private Fleet CreateFleet()
-    {
-        var shipwright = gameItemFactory.CreateShipwright();
-        return shipwright.CreateFleet();
-    }
+        private Fleet CreateFleet()
+        {
+            var shipwright = gameItemFactory.CreateShipwright();
+            return shipwright.CreateFleet();
+        }
 
-    private void StartShooting()
-    {
-        var gunnery = gameItemFactory.CreateGunnery();
-        // ...
+        private void StartShooting()
+        {
+            var gunnery = gameItemFactory.CreateGunnery();
+            // ...
+        }
     }
-}
 }
