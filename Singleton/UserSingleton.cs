@@ -11,6 +11,7 @@ namespace DesignPatterns.Singleton
     {
         private static readonly UserSingleton instance = new UserSingleton();
 
+        //privatni konstruktor ulaz nam je staticki clan za pozvat ga
         private UserSingleton()
         {
             LoginForm login = new LoginForm();

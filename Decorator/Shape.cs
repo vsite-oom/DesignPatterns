@@ -76,7 +76,33 @@ namespace DesignPatterns.Decorator
         {
             shape.Draw(g);
             var pos = new Point(shape.Bounds.X + shape.Bounds.Width / 2, shape.Bounds.Y + shape.Bounds.Height / 2);
-            g.DrawString("A", SystemFonts.CaptionFont, Brushes.Red, pos);
+            g.DrawString("ANANAS", SystemFonts.CaptionFont, Brushes.Red, pos);
+        }
+
+
+    }
+    class RectangleOutline : ShapeDecorator
+    {
+        public RectangleOutline(Shape shape) : base(shape)
+        {
+        }
+
+        public override void Draw(Graphics g)
+        {
+            shape.Draw(g);
+            g.DrawRectangle(Pens.Yellow, shape.Bounds);
+        }
+    }
+    class RectangleFill : ShapeDecorator
+    {
+        public RectangleFill(Shape shape) : base(shape)
+        {
+        }
+
+        public override void Draw(Graphics g)
+        {
+            shape.Draw(g);
+            g.FillRectangle(Brushes.Turquoise, shape.Bounds);
         }
     }
 }
