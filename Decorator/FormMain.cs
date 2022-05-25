@@ -22,11 +22,11 @@ namespace DesignPatterns.Decorator
         private void buttonDraw_Click(object sender, EventArgs e)
         {
             ShapeDecorator dec = new ShapeDecorator(shape);
-            if (checkBoxFill.Checked)
+            if (checkBoxEllipseFill.Checked)
             {
                 dec = new EllipseFill(dec);
             }
-            if (checkBoxOutline.Checked)
+            if (checkBoxEllipseOutline.Checked)
             {
                 dec = new EllipseOutline(dec);
             }
