@@ -34,6 +34,8 @@ namespace DesignPatterns.Decorator
             this.checkBoxCaption = new System.Windows.Forms.CheckBox();
             this.buttonDraw = new System.Windows.Forms.Button();
             this.drawingPane = new DesignPatterns.Decorator.DrawingPane();
+            this.checkBoxRecOut = new System.Windows.Forms.CheckBox();
+            this.checkBoxRecFil = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.drawingPane)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,11 +88,33 @@ namespace DesignPatterns.Decorator
             this.drawingPane.TabIndex = 4;
             this.drawingPane.TabStop = false;
             // 
+            // checkBoxRecOut
+            // 
+            this.checkBoxRecOut.AutoSize = true;
+            this.checkBoxRecOut.Location = new System.Drawing.Point(12, 81);
+            this.checkBoxRecOut.Name = "checkBoxRecOut";
+            this.checkBoxRecOut.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxRecOut.TabIndex = 5;
+            this.checkBoxRecOut.Text = "&Rectangle outline";
+            this.checkBoxRecOut.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxRecFil
+            // 
+            this.checkBoxRecFil.AutoSize = true;
+            this.checkBoxRecFil.Location = new System.Drawing.Point(12, 104);
+            this.checkBoxRecFil.Name = "checkBoxRecFil";
+            this.checkBoxRecFil.Size = new System.Drawing.Size(87, 17);
+            this.checkBoxRecFil.TabIndex = 6;
+            this.checkBoxRecFil.Text = "Rectangle &fill";
+            this.checkBoxRecFil.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 278);
+            this.Controls.Add(this.checkBoxRecFil);
+            this.Controls.Add(this.checkBoxRecOut);
             this.Controls.Add(this.drawingPane);
             this.Controls.Add(this.buttonDraw);
             this.Controls.Add(this.checkBoxCaption);
@@ -113,6 +137,8 @@ namespace DesignPatterns.Decorator
         private System.Windows.Forms.CheckBox checkBoxCaption;
         private System.Windows.Forms.Button buttonDraw;
         private DrawingPane drawingPane;
+        private System.Windows.Forms.CheckBox checkBoxRecOut;
+        private System.Windows.Forms.CheckBox checkBoxRecFil;
     }
 }
 
