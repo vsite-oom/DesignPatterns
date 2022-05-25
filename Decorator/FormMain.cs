@@ -22,6 +22,15 @@ namespace DesignPatterns.Decorator
         private void buttonDraw_Click(object sender, EventArgs e)
         {
             ShapeDecorator dec = new ShapeDecorator(shape);
+
+            if (checkBoxRectangleFill.Checked)
+            {
+                dec = new RectangleFill(dec);
+            }
+            if (checkBoxRectangleOutline.Checked)
+            {
+                dec = new RecrangleOutline(dec);
+            }
             if (checkBoxEllipseFill.Checked)
             {
                 dec = new EllipseFill(dec);
@@ -34,8 +43,8 @@ namespace DesignPatterns.Decorator
             {
                 dec = new ShapeCaption(dec);
             }
-            drawingPane.Assign(dec);
-            drawingPane.Invalidate();
+            drawingPane1.Assign(dec);
+            drawingPane1.Invalidate();
         }
     }
 }

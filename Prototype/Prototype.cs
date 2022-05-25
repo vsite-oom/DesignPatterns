@@ -46,8 +46,8 @@ namespace DesignPatterns.Prototype
             public object Clone()
             {
                 // Ovo će kreirati plitku kopiju: Points su reference koje će se samo preslikati
-                return MemberwiseClone();
-                //return new Polygon(Points.Select(a => (Point)a.Clone()).ToArray());
+                //return MemberwiseClone();
+                return new Polygon(Points.Select(a => (Point)a.Clone()).ToArray());
             }
 
             public void Move(double deltaX, double deltaY)
@@ -75,6 +75,11 @@ namespace DesignPatterns.Prototype
 
             Console.WriteLine("triangle2 vertices:");
             Console.WriteLine(string.Join(", ", triangle2.Points));
+            Console.WriteLine();
+
+            Console.WriteLine("triangle1 vertices:");
+            Console.WriteLine(string.Join(", ", triangle1.Points));
+            Console.WriteLine();
 
             Console.WriteLine();
         }
