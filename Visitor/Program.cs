@@ -31,6 +31,47 @@ namespace DesignPatterns.Visitor
         }
     }
 
+    class AreaCalculatorVisitor : IShapeVisitor
+    {
+        public AreaCalculatorVisitor()
+        {
+            Area = 0;
+        }
+        public void Visit(Circle circle)
+        {
+            double area = circle.radius * circle.radius * Math.PI;
+            Area += area;
+        }
+
+        public void Visit(Rectangle rectangle)
+        {
+            double area = rectangle.height * rectangle.width;
+            Area += area;
+        }
+        public double Area { get; private set; }
+
+    }
+    class ShapeMoveVisitor : IShapeVisitor
+    {
+        public ShapeMoveVisitor(double dx,double dy)
+        {
+            this.dy = dy;
+            this.dx = dx;
+        }
+        private readonly double dx, dy;
+        public void Visit(Circle circle)
+        {
+            circle.xCenter += dx;
+            circle.yCenter += dy;
+        }
+
+        public void Visit(Rectangle rectangle)
+        {
+            rectangle.xLeft += dx;
+            rectangle.yLeft += dy;
+        }
+    }
+
     class Rectangle : Shape
     {
         public Rectangle(double xLeft, double yLeft, double width, double height)
@@ -107,6 +148,10 @@ namespace DesignPatterns.Visitor
             drawing.AcceptVisitor(visitor);
 
             Console.WriteLine(sw.ToString());
+
+            AreaCalculatorVisitor visitor2 = new AreaCalculatorVisitor();
+            drawing.AcceptVisitor(visitor2);
+            Console.WriteLine(visitor2.Area);
 
         }
     }
