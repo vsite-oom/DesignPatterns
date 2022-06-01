@@ -10,11 +10,13 @@ namespace DesignPatterns.Interpreter
     {
         public XorExpression(IExpression leftSide, IExpression rightSide)
         {
+            this.rhs = rightSide;
+            this.lhs = leftSide;
         }
-
+        private IExpression lhs, rhs;
         public bool Interpret(Context context)
         {
-            throw new NotImplementedException();
+            return lhs.Interpret(context) ^ rhs.Interpret(context);
         }
     }
 }
