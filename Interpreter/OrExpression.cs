@@ -19,7 +19,7 @@ namespace DesignPatterns.Interpreter
 
         public bool Interpret(Context context)
         {
-            return leftSide.Interpret(context) | rightSide.Interpret(context);
+            return leftSide.Interpret(context) || rightSide.Interpret(context);
         }
     }
 }
