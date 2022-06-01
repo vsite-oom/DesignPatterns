@@ -59,7 +59,7 @@ namespace DesignPatterns.Command
     class Selection : Shape
     {
         private List<Shape> selection = new List<Shape>();
-
+        Shape shape;
         public void AddShape(Shape shape)
         {
             selection.Add(shape);
@@ -78,7 +78,7 @@ namespace DesignPatterns.Command
 
         public override void Resize(int dx, int dy)
         {
-            selection.Resize(dx, dy);
+            shape.Resize(dx, dy);
         }
     }
 
