@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns.Interpreter
 {
@@ -26,6 +23,13 @@ namespace DesignPatterns.Interpreter
 
             // Primjer (logički XOR i OR): a ^ b || c
             or = new OrExpression(xor, new VariableTerminalExpression("c"));
+            result = or.Interpret(new Context(new Dictionary<string, bool>() { { "a", false }, { "b", false }, { "c", true } }));
+            Console.WriteLine(result);
+
+            // Primjer (logički XOR i OR): a && b || (c ^ a)
+            var and = new AndExpression(new VariableTerminalExpression("a"), new VariableTerminalExpression("b"));
+            xor = new XorExpression(new VariableTerminalExpression("c"), new VariableTerminalExpression("a"));
+            or = new OrExpression(and, xor);
             result = or.Interpret(new Context(new Dictionary<string, bool>() { { "a", false }, { "b", false }, { "c", true } }));
             Console.WriteLine(result);
         }
