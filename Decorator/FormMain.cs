@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DesignPatterns.Decorator
@@ -22,6 +15,14 @@ namespace DesignPatterns.Decorator
         private void buttonDraw_Click(object sender, EventArgs e)
         {
             ShapeDecorator dec = new ShapeDecorator(shape);
+            if (rectangleOutlineCheckBox.Checked)
+            {
+                dec = new RectangleOutline(dec);
+            }
+            if (RectangleFillCheckbox.Checked)
+            {
+                dec = new RectangleFill(dec);
+            }
             if (checkBoxEllipseFill.Checked)
             {
                 dec = new EllipseFill(dec);
@@ -34,8 +35,19 @@ namespace DesignPatterns.Decorator
             {
                 dec = new ShapeCaption(dec);
             }
+
             drawingPane.Assign(dec);
             drawingPane.Invalidate();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RectangleFillCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

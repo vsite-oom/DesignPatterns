@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace DesignPatterns.Decorator
 {
@@ -54,6 +49,20 @@ namespace DesignPatterns.Decorator
             g.DrawEllipse(Pens.Black, shape.Bounds);
         }
     }
+
+    class RectangleOutline : ShapeDecorator
+    {
+        public RectangleOutline(Shape shape) : base(shape)
+        {
+        }
+
+        public override void Draw(Graphics g)
+        {
+            shape.Draw(g);
+            g.DrawRectangle(Pens.Brown, shape.Bounds);
+        }
+    }
+
     class EllipseFill : ShapeDecorator
     {
         public EllipseFill(Shape shape) : base(shape)
@@ -64,6 +73,19 @@ namespace DesignPatterns.Decorator
         {
             shape.Draw(g);
             g.FillEllipse(Brushes.Cyan, shape.Bounds);
+        }
+    }
+
+    class RectangleFill : ShapeDecorator
+    {
+        public RectangleFill(Shape shape) : base(shape)
+        {
+        }
+
+        public override void Draw(Graphics g)
+        {
+            shape.Draw(g);
+            g.FillRectangle(Brushes.DarkOrange, shape.Bounds);
         }
     }
     class ShapeCaption : ShapeDecorator
