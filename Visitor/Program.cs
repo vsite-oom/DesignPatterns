@@ -94,6 +94,28 @@ namespace DesignPatterns.Visitor
         }
     }
 
+    class AreaSumVisitor : IShapeVisitor
+    {
+        public AreaSumVisitor()
+        {
+            Area = 0;
+        }
+
+        public double Area { get; private set; }
+
+        public void Visit(Circle circle)
+        {
+            var area = circle.radius * circle.radius * Math.PI;
+            Area += area;
+        }
+
+        public void Visit(Rectangle rectangle)
+        {
+            var area = rectangle.width * rectangle.height;
+            Area += area;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -108,6 +130,11 @@ namespace DesignPatterns.Visitor
 
             Console.WriteLine(sw.ToString());
 
+            AreaSumVisitor av = new AreaSumVisitor();
+            drawing.AcceptVisitor(av);
+            Console.WriteLine(av.Area);
+
+            Console.ReadKey();
         }
     }
 }
