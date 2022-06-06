@@ -111,6 +111,30 @@ namespace DesignPatterns.Command
         }
     }
 
+    class ResizeShapeCommand : ICommand
+    {
+        public ResizeShapeCommand(Shape shape, int dx, int dy)
+        {
+            this.shape = shape;
+            this.dx = dx;
+            this.dy = dy;
+        }
+
+        private readonly Shape shape;
+        private readonly int dx;
+        private readonly int dy;
+
+        public void Execute()
+        {
+            shape.Resize(dx, dy);
+        }
+
+        public void Undo()
+        {
+            shape.Resize(-dx, -dy);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -130,6 +154,13 @@ namespace DesignPatterns.Command
 
             Console.WriteLine("Undo move shape command");
             cmd.Undo();
+
+            var cmd2 = new ResizeShapeCommand(sel, 3, 7);
+            Console.WriteLine("Execute resize shape command");
+            cmd2.Execute();
+
+            Console.WriteLine("Undo resize shape command");
+            cmd2.Undo();
 
         }
     }
