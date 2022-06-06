@@ -28,6 +28,16 @@ namespace DesignPatterns.Interpreter
             or = new OrExpression(xor, new VariableTerminalExpression("c"));
             result = or.Interpret(new Context(new Dictionary<string, bool>() { { "a", false }, { "b", false }, { "c", true } }));
             Console.WriteLine(result);
+
+            // Primjer (logički AND, XOR i OR): a && b || (c ^ a)
+            var and = new AndExpression(new VariableTerminalExpression("a"), new VariableTerminalExpression("b"));
+            var xor2 = new XorExpression(new VariableTerminalExpression("c"), new VariableTerminalExpression("a"));
+
+            var or2 = new OrExpression(and, xor2);
+
+            or = new OrExpression(xor, new VariableTerminalExpression("c"));
+            result = or2.Interpret(new Context(new Dictionary<string, bool>() { { "a", false }, { "b", false }, { "c", true } }));
+            Console.WriteLine(result);
         }
     }
 }
