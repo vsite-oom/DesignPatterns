@@ -7,14 +7,20 @@ using System.Threading.Tasks;
 namespace DesignPatterns.Interpreter
 {
     public class XorExpression : IExpression
-    {
+    { 
         public XorExpression(IExpression leftSide, IExpression rightSide)
         {
+            this.leftSide = leftSide;
+            this.rightSide = rightSide;
         }
 
+        private IExpression leftSide;
+        private IExpression rightSide;
+
+        
         public bool Interpret(Context context)
         {
-            throw new NotImplementedException();
+            return leftSide.Interpret(context) ^ rightSide.Interpret(context);
         }
     }
 }
