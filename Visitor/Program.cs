@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns.Visitor
 {
@@ -94,6 +91,26 @@ namespace DesignPatterns.Visitor
         }
     }
 
+    class AreaSumVisitior : IShapeVisitor
+    {
+        public double Area { get; private set; }
+
+        public AreaSumVisitior()
+        {
+            Area = 0;
+        }
+
+        public void Visit(Circle circle)
+        {
+            Area += circle.radius * circle.radius * Math.PI;
+        }
+
+        public void Visit(Rectangle rectangle)
+        {
+            Area += rectangle.height * rectangle.width;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -108,6 +125,9 @@ namespace DesignPatterns.Visitor
 
             Console.WriteLine(sw.ToString());
 
+            AreaSumVisitior areaVisitor = new AreaSumVisitior();
+            drawing.AcceptVisitor(areaVisitor);
+            Console.WriteLine(areaVisitor.Area);
         }
     }
 }
