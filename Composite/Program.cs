@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns.Composite
 {
     abstract class Shape
     {
         public abstract void Move(int dx, int dy);
+
+        public abstract void Resize(int dx, int dy);
     }
 
     class Circle : Shape
@@ -21,6 +20,11 @@ namespace DesignPatterns.Composite
         public override void Move(int dx, int dy)
         {
             Console.WriteLine($"Move circle {instance} by: {dx}, {dy}");
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            Console.WriteLine($"Resize circle {instance} by: {dx}, {dy}");
         }
 
         private readonly int instance;
@@ -38,6 +42,11 @@ namespace DesignPatterns.Composite
         public override void Move(int dx, int dy)
         {
             Console.WriteLine($"Move rectangle {instance} by: {dx}, {dy}");
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            Console.WriteLine($"Resize rectangle {instance} by: {dx}, {dy}");
         }
 
         private readonly int instance;
@@ -64,6 +73,12 @@ namespace DesignPatterns.Composite
             foreach (var shape in selection)
                 shape.Move(dx, dy);
         }
+
+        public override void Resize(int dx, int dy)
+        {
+            foreach (var shape in selection)
+                shape.Resize(dx, dy);
+        }
     }
 
     class Program
@@ -82,9 +97,15 @@ namespace DesignPatterns.Composite
 
             sel.Move(3, 4);
 
+            Console.WriteLine("Resize first selection:");
+            sel.Resize(10, 3);
+
             Console.WriteLine("Move second selection:");
             sel.RemoveShape(c1);
             sel.Move(1, 0);
+
+            Console.WriteLine("Resize second selection:");
+            sel.Move(5, 6);
         }
     }
 }
