@@ -54,6 +54,32 @@ namespace DesignPatterns.Decorator
             g.DrawEllipse(Pens.Black, shape.Bounds);
         }
     }
+
+    class RectangleOutline : ShapeDecorator
+    {
+        public RectangleOutline(Shape shape) : base(shape)
+        {
+        }
+
+        public override void Draw(Graphics g)
+        {
+            shape.Draw(g);
+            g.DrawRectangle(Pens.Brown, shape.Bounds);
+        }
+    }
+
+    class RectangleFill : ShapeDecorator
+    {
+        public RectangleFill(Shape shape) : base(shape)
+        {
+        }
+
+        public override void Draw(Graphics g)
+        {
+            shape.Draw(g);
+            g.FillRectangle(Brushes.Bisque, shape.Bounds);
+        }
+    }
     class EllipseFill : ShapeDecorator
     {
         public EllipseFill(Shape shape) : base(shape)
