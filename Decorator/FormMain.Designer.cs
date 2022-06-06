@@ -34,15 +34,18 @@ namespace DesignPatterns.Decorator
             this.checkBoxCaption = new System.Windows.Forms.CheckBox();
             this.buttonDraw = new System.Windows.Forms.Button();
             this.drawingPane = new DesignPatterns.Decorator.DrawingPane();
+            this.checkBoxRectangleOutline = new System.Windows.Forms.CheckBox();
+            this.checkBoxRectangleFill = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.drawingPane)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBoxEllipseOutline
             // 
             this.checkBoxEllipseOutline.AutoSize = true;
-            this.checkBoxEllipseOutline.Location = new System.Drawing.Point(12, 12);
+            this.checkBoxEllipseOutline.Location = new System.Drawing.Point(16, 15);
+            this.checkBoxEllipseOutline.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxEllipseOutline.Name = "checkBoxEllipseOutline";
-            this.checkBoxEllipseOutline.Size = new System.Drawing.Size(90, 17);
+            this.checkBoxEllipseOutline.Size = new System.Drawing.Size(117, 21);
             this.checkBoxEllipseOutline.TabIndex = 0;
             this.checkBoxEllipseOutline.Text = "&Ellipse outline";
             this.checkBoxEllipseOutline.UseVisualStyleBackColor = true;
@@ -50,9 +53,10 @@ namespace DesignPatterns.Decorator
             // checkBoxEllipseFill
             // 
             this.checkBoxEllipseFill.AutoSize = true;
-            this.checkBoxEllipseFill.Location = new System.Drawing.Point(12, 35);
+            this.checkBoxEllipseFill.Location = new System.Drawing.Point(16, 43);
+            this.checkBoxEllipseFill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxEllipseFill.Name = "checkBoxEllipseFill";
-            this.checkBoxEllipseFill.Size = new System.Drawing.Size(68, 17);
+            this.checkBoxEllipseFill.Size = new System.Drawing.Size(88, 21);
             this.checkBoxEllipseFill.TabIndex = 1;
             this.checkBoxEllipseFill.Text = "Ellipse &fill";
             this.checkBoxEllipseFill.UseVisualStyleBackColor = true;
@@ -60,18 +64,20 @@ namespace DesignPatterns.Decorator
             // checkBoxCaption
             // 
             this.checkBoxCaption.AutoSize = true;
-            this.checkBoxCaption.Location = new System.Drawing.Point(12, 58);
+            this.checkBoxCaption.Location = new System.Drawing.Point(16, 71);
+            this.checkBoxCaption.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxCaption.Name = "checkBoxCaption";
-            this.checkBoxCaption.Size = new System.Drawing.Size(62, 17);
+            this.checkBoxCaption.Size = new System.Drawing.Size(78, 21);
             this.checkBoxCaption.TabIndex = 2;
             this.checkBoxCaption.Text = "&Caption";
             this.checkBoxCaption.UseVisualStyleBackColor = true;
             // 
             // buttonDraw
             // 
-            this.buttonDraw.Location = new System.Drawing.Point(12, 243);
+            this.buttonDraw.Location = new System.Drawing.Point(16, 299);
+            this.buttonDraw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDraw.Name = "buttonDraw";
-            this.buttonDraw.Size = new System.Drawing.Size(75, 23);
+            this.buttonDraw.Size = new System.Drawing.Size(100, 28);
             this.buttonDraw.TabIndex = 3;
             this.buttonDraw.Text = "&Draw";
             this.buttonDraw.UseVisualStyleBackColor = true;
@@ -80,23 +86,48 @@ namespace DesignPatterns.Decorator
             // drawingPane
             // 
             this.drawingPane.BackColor = System.Drawing.SystemColors.Window;
-            this.drawingPane.Location = new System.Drawing.Point(154, 12);
+            this.drawingPane.Location = new System.Drawing.Point(205, 15);
+            this.drawingPane.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.drawingPane.Name = "drawingPane";
-            this.drawingPane.Size = new System.Drawing.Size(422, 254);
+            this.drawingPane.Size = new System.Drawing.Size(563, 313);
             this.drawingPane.TabIndex = 4;
             this.drawingPane.TabStop = false;
             // 
+            // checkBoxRectangleOutline
+            // 
+            this.checkBoxRectangleOutline.AutoSize = true;
+            this.checkBoxRectangleOutline.Location = new System.Drawing.Point(16, 99);
+            this.checkBoxRectangleOutline.Name = "checkBoxRectangleOutline";
+            this.checkBoxRectangleOutline.Size = new System.Drawing.Size(143, 21);
+            this.checkBoxRectangleOutline.TabIndex = 5;
+            this.checkBoxRectangleOutline.Text = "&Rectangle Outline";
+            this.checkBoxRectangleOutline.UseVisualStyleBackColor = true;
+            this.checkBoxRectangleOutline.CheckedChanged += new System.EventHandler(this.checkBoxRectangleOutline_CheckedChanged);
+            // 
+            // checkBoxRectangleFill
+            // 
+            this.checkBoxRectangleFill.AutoSize = true;
+            this.checkBoxRectangleFill.Location = new System.Drawing.Point(16, 127);
+            this.checkBoxRectangleFill.Name = "checkBoxRectangleFill";
+            this.checkBoxRectangleFill.Size = new System.Drawing.Size(115, 21);
+            this.checkBoxRectangleFill.TabIndex = 6;
+            this.checkBoxRectangleFill.Text = "Rec&tangle Fill";
+            this.checkBoxRectangleFill.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 278);
+            this.ClientSize = new System.Drawing.Size(784, 342);
+            this.Controls.Add(this.checkBoxRectangleFill);
+            this.Controls.Add(this.checkBoxRectangleOutline);
             this.Controls.Add(this.drawingPane);
             this.Controls.Add(this.buttonDraw);
             this.Controls.Add(this.checkBoxCaption);
             this.Controls.Add(this.checkBoxEllipseFill);
             this.Controls.Add(this.checkBoxEllipseOutline);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.Text = "Ellipse Decorator";
@@ -113,6 +144,8 @@ namespace DesignPatterns.Decorator
         private System.Windows.Forms.CheckBox checkBoxCaption;
         private System.Windows.Forms.Button buttonDraw;
         private DrawingPane drawingPane;
+        private System.Windows.Forms.CheckBox checkBoxRectangleOutline;
+        private System.Windows.Forms.CheckBox checkBoxRectangleFill;
     }
 }
 
