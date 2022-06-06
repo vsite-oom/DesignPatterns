@@ -9,6 +9,7 @@ namespace DesignPatterns.Command
     abstract class Shape
     {
         public abstract void Move(int dx, int dy);
+        public abstract void Resize(int dx, int dy);
     }
 
     class Circle : Shape
@@ -21,6 +22,11 @@ namespace DesignPatterns.Command
         public override void Move(int dx, int dy)
         {
             Console.WriteLine($"Move circle {instance} by: {dx}, {dy}");
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            Console.WriteLine($"Resize circle {instance} by: {dx}, {dy}");
         }
 
         private readonly int instance;
@@ -38,6 +44,11 @@ namespace DesignPatterns.Command
         public override void Move(int dx, int dy)
         {
             Console.WriteLine($"Move rectangle {instance} by: {dx}, {dy}");
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            Console.WriteLine($"Resize rectangle {instance} by: {dx}, {dy}");
         }
 
         private readonly int instance;
@@ -63,6 +74,13 @@ namespace DesignPatterns.Command
         {
             foreach (var shape in selection)
                 shape.Move(dx, dy);
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            foreach (var shape in selection)
+                Console.WriteLine($"Resize selection {shape} by: {dx}, {dy}");
+
         }
     }
 
