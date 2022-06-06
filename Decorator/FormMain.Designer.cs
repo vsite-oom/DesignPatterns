@@ -33,7 +33,9 @@ namespace DesignPatterns.Decorator
             this.checkBoxEllipseFill = new System.Windows.Forms.CheckBox();
             this.checkBoxCaption = new System.Windows.Forms.CheckBox();
             this.buttonDraw = new System.Windows.Forms.Button();
+            this.checkBoxRectangleOutline = new System.Windows.Forms.CheckBox();
             this.drawingPane = new DesignPatterns.Decorator.DrawingPane();
+            this.checkBoxRectangleFill = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.drawingPane)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +79,16 @@ namespace DesignPatterns.Decorator
             this.buttonDraw.UseVisualStyleBackColor = true;
             this.buttonDraw.Click += new System.EventHandler(this.buttonDraw_Click);
             // 
+            // checkBoxRectangleOutline
+            // 
+            this.checkBoxRectangleOutline.AutoSize = true;
+            this.checkBoxRectangleOutline.Location = new System.Drawing.Point(12, 81);
+            this.checkBoxRectangleOutline.Name = "checkBoxRectangleOutline";
+            this.checkBoxRectangleOutline.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxRectangleOutline.TabIndex = 5;
+            this.checkBoxRectangleOutline.Text = "&Rectangle outline";
+            this.checkBoxRectangleOutline.UseVisualStyleBackColor = true;
+            // 
             // drawingPane
             // 
             this.drawingPane.BackColor = System.Drawing.SystemColors.Window;
@@ -86,11 +98,23 @@ namespace DesignPatterns.Decorator
             this.drawingPane.TabIndex = 4;
             this.drawingPane.TabStop = false;
             // 
+            // checkBoxRectangleFill
+            // 
+            this.checkBoxRectangleFill.AutoSize = true;
+            this.checkBoxRectangleFill.Location = new System.Drawing.Point(12, 104);
+            this.checkBoxRectangleFill.Name = "checkBoxRectangleFill";
+            this.checkBoxRectangleFill.Size = new System.Drawing.Size(70, 14);
+            this.checkBoxRectangleFill.TabIndex = 6;
+            this.checkBoxRectangleFill.Text = "&Rectangle fill";
+            this.checkBoxRectangleFill.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 278);
+            this.Controls.Add(this.checkBoxRectangleFill);
+            this.Controls.Add(this.checkBoxRectangleOutline);
             this.Controls.Add(this.drawingPane);
             this.Controls.Add(this.buttonDraw);
             this.Controls.Add(this.checkBoxCaption);
@@ -113,6 +137,8 @@ namespace DesignPatterns.Decorator
         private System.Windows.Forms.CheckBox checkBoxCaption;
         private System.Windows.Forms.Button buttonDraw;
         private DrawingPane drawingPane;
+        private System.Windows.Forms.CheckBox checkBoxRectangleOutline;
+        private System.Windows.Forms.CheckBox checkBoxRectangleFill;
     }
 }
 
