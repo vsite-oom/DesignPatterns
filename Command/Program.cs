@@ -9,6 +9,8 @@ namespace DesignPatterns.Command
     abstract class Shape
     {
         public abstract void Move(int dx, int dy);
+
+        public abstract void Resize(int dx, int dy);
     }
 
     class Circle : Shape
@@ -21,6 +23,11 @@ namespace DesignPatterns.Command
         public override void Move(int dx, int dy)
         {
             Console.WriteLine($"Move circle {instance} by: {dx}, {dy}");
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            Console.WriteLine($"Resize circle {instance} by: {dx}, {dy}");
         }
 
         private readonly int instance;
@@ -38,6 +45,11 @@ namespace DesignPatterns.Command
         public override void Move(int dx, int dy)
         {
             Console.WriteLine($"Move rectangle {instance} by: {dx}, {dy}");
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            Console.WriteLine($"Resize rectangle {instance} by: {dx}, {dy}");
         }
 
         private readonly int instance;
@@ -63,6 +75,12 @@ namespace DesignPatterns.Command
         {
             foreach (var shape in selection)
                 shape.Move(dx, dy);
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            foreach (var shape in selection)
+                shape.Resize(dx, dy);
         }
     }
 
@@ -96,6 +114,30 @@ namespace DesignPatterns.Command
         }
     }
 
+    class ResizeShapeCommand : ICommand
+    {
+        public ResizeShapeCommand(Shape shape, int dx, int dy)
+        {
+            this.shape = shape;
+            this.dx = dx;
+            this.dy = dy;
+        }
+
+        private readonly Shape shape;
+        private readonly int dx;
+        private readonly int dy;
+
+        public void Execute()
+        {
+            shape.Resize(dx, dy);
+        }
+
+        public void Undo()
+        {
+            shape.Resize(-dx, -dy);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -113,9 +155,17 @@ namespace DesignPatterns.Command
             Console.WriteLine("Execute move shape command");
             cmd.Execute();
 
+            Console.WriteLine("Execute resize circle1 command");
+            ResizeShapeCommand cmd2 = new ResizeShapeCommand(c1, 5, 8);
+            cmd2.Execute();
+
             Console.WriteLine("Undo move shape command");
             cmd.Undo();
 
+            Console.WriteLine("Undo resize circle1 command");
+            cmd2.Undo();
+
+            Console.ReadKey();
         }
     }
 }
