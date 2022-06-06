@@ -13,7 +13,7 @@ namespace DesignPatterns.State
         }
         public override void Evaluate(double value)
         {
-            throw new NotImplementedException();
+            Value = Value / value;
         }
     }
 }
