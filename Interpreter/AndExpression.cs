@@ -8,9 +8,18 @@ namespace DesignPatterns.Interpreter
 {
     public class AndExpression : IExpression
     {
+        public AndExpression(IExpression leftSide, IExpression rightSide)
+        {
+            this.leftSide = leftSide;
+            this.rightSide = rightSide;
+        }
+
+        private IExpression leftSide;
+        private IExpression rightSide;
+
         public bool Interpret(Context context)
         {
-            throw new NotImplementedException();
+            return this.leftSide.Interpret(context) && this.rightSide.Interpret(context);
         }
     }
 }
