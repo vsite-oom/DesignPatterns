@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.AbstractFactory
+﻿namespace DesignPatterns.AbstractFactory
 {
     interface IShipwright
     {
@@ -90,6 +84,13 @@ namespace DesignPatterns.AbstractFactory
         {
             var gunnery = gameItemFactory.CreateGunnery();
             // ...
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
         }
     }
 }

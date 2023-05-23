@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.ObjectPool
+﻿namespace DesignPatterns.ObjectPool
 {
     class Taxi
     {
@@ -44,9 +38,9 @@ namespace DesignPatterns.ObjectPool
         private readonly Queue<Taxi> taxis = new Queue<Taxi>();
     }
 
-    class Program
+    static internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             TaxiCarPool pool = new TaxiCarPool();
             var taxi1 = pool.GetTaxi();

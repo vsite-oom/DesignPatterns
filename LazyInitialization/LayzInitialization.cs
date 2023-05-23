@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesigPatterns.LazyInitialization
+﻿namespace DesigPatterns.LazyInitialization
 {
     class Car
     {
@@ -19,7 +13,7 @@ namespace DesigPatterns.LazyInitialization
 
     class CarDealer
     {
-        private Dictionary<string, Car> availableCars = new Dictionary<string, Car>();
+        private readonly Dictionary<string, Car> availableCars = new Dictionary<string, Car>();
 
         public Car GetCar(string model)
         {
@@ -32,9 +26,9 @@ namespace DesigPatterns.LazyInitialization
         }
     }
 
-    class Program
+    static internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var dealer = new CarDealer();
             var tesla1 = dealer.GetCar("Tesla model S");

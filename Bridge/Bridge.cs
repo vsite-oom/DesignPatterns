@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.Bridge
+﻿namespace DesignPatterns.Bridge
 {
     class Writer
     {
@@ -59,7 +52,6 @@ namespace DesignPatterns.Bridge
             streamWriter.Write($"<address>{address}</address>");
         }
     }
-
 
     class Program
     {

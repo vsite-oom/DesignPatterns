@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.Command
+﻿namespace DesignPatterns.Composite
 {
     abstract class Shape
     {
@@ -47,7 +41,7 @@ namespace DesignPatterns.Command
 
     class Selection : Shape
     {
-        private List<Shape> selection = new List<Shape>();
+        private readonly List<Shape> selection = new List<Shape>();
 
         public void AddShape(Shape shape)
         {
@@ -62,41 +56,13 @@ namespace DesignPatterns.Command
         public override void Move(int dx, int dy)
         {
             foreach (var shape in selection)
+            {
                 shape.Move(dx, dy);
+            }
         }
     }
 
-    interface ICommand
-    {
-        void Execute();
-        void Undo();
-    }
-
-    class MoveShapeCommand : ICommand
-    {
-        public MoveShapeCommand(Shape shape, int dx, int dy)
-        {
-            this.shape = shape;
-            this.dx = dx;
-            this.dy = dy;
-        }
-
-        private readonly Shape shape;
-        private readonly int dx;
-        private readonly int dy;
-
-        public void Execute()
-        {
-            shape.Move(dx, dy);
-        }
-
-        public void Undo()
-        {
-            shape.Move(-dx, -dy);
-        }
-    }
-
-    class Program
+    static internal class Program
     {
         static void Main(string[] args)
         {
@@ -104,18 +70,17 @@ namespace DesignPatterns.Command
             Circle c2 = new Circle();
             Rectangle r1 = new Rectangle();
 
+            Console.WriteLine("Move first selection:");
             Selection sel = new Selection();
             sel.AddShape(c1);
             sel.AddShape(r1);
             sel.AddShape(c2);
 
-            MoveShapeCommand cmd = new MoveShapeCommand(sel, 3, 7);
-            Console.WriteLine("Execute move shape command");
-            cmd.Execute();
+            sel.Move(3, 4);
 
-            Console.WriteLine("Undo move shape command");
-            cmd.Undo();
-
+            Console.WriteLine("Move second selection:");
+            sel.RemoveShape(c1);
+            sel.Move(1, 0);
         }
     }
 }

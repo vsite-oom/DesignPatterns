@@ -1,39 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31321.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33717.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder", "Builder\Builder.csproj", "{EA41C321-D568-4E8E-8C27-A411834D91C8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "Singleton\Singleton.csproj", "{CE41F60C-A32E-425A-8148-43A67B8E96B2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "Adapter\Adapter.csproj", "{3B2D13EE-6D68-4218-B488-59BA7A4D74F2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge", "Bridge\Bridge.csproj", "{EE00A1D5-3EF1-436B-8881-19C67C1BF7FC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composite", "Composite\Composite.csproj", "{19E80902-850E-4700-9B50-5B11BFA7D228}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lnterpreter", "Interpreter\lnterpreter.csproj", "{420082E0-B3C8-4B60-A738-BC2D54831224}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - PPT", "0 - PPT", "{D2AD949A-9DD0-49BB-BE81-35B442221544}"
 	ProjectSection(SolutionItems) = preProject
 		docs\Design patterns - eng.pptx = docs\Design patterns - eng.pptx
 		docs\Design patterns.pptx = docs\Design patterns.pptx
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactory", "AbstractFactory\AbstractFactory.csproj", "{45499B06-789E-411D-B4C5-C4505F1F99DC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod", "FactoryMethod\FactoryMethod.csproj", "{6D636CEA-414C-4F5C-9455-E436248FD103}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethod", "TemplateMethod\TemplateMethod.csproj", "{756AE967-1727-40CA-B3DA-EB8B03853AAD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer", "Observer\Observer.csproj", "{2E05A14F-E328-4CC3-90C6-13DA58E23340}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command.csproj", "{1DC3E6CA-4C39-4FE1-BAA1-F7ECC4198944}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visitor", "Visitor\Visitor.csproj", "{DA586AE8-16BF-4F0B-8F5F-E36E5F34CD15}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Prototype\Prototype.csproj", "{71F3E1F4-0906-4629-A3F0-BBA262BC58A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Creational", "1 - Creational", "{5D8B7CF5-4232-4FB1-8EF5-47D420F835FF}"
 EndProject
@@ -41,11 +15,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Structural", "2 - Struc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Behavioral", "3 - Behavioral", "{F1E52B38-80B8-4182-8178-67B022C4E3AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyInitialization", "LazyInitialization\LazyInitialization.csproj", "{4CD8EFCD-AA70-42BD-9A7C-225EFF495D52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractFactory", "AbstractFactory\AbstractFactory.csproj", "{ADAA8BE0-E29F-463F-8C65-C9A2BD566C02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectPool", "ObjectPool\ObjectPool.csproj", "{9E3AD951-376D-462D-BFF3-6AE1BF909AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Builder", "Builder\Builder.csproj", "{84C0EF9B-4DA3-417E-8FBA-18FE997A9397}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator", "Decorator\Decorator.csproj", "{7C8C64D2-E6DD-4350-8451-DF00D7887FB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryMethod", "FactoryMethod\FactoryMethod.csproj", "{2EEC86DC-9264-43CC-8FC5-92E07B4AF5A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LazyInitialization", "LazyInitialization\LazyInitialization.csproj", "{BE93CFB2-A942-4B72-BEEE-73F9333C807A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectPool", "ObjectPool\ObjectPool.csproj", "{4457CAA3-66AB-4127-BFB8-6ECCA07F8EF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prototype", "Prototype\Prototype.csproj", "{EAB26697-FE53-4A7F-A08C-B759A4569DDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singleton", "Singleton\Singleton.csproj", "{2B67CBA6-4051-4A17-93AF-69BFFFD05C2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "Adapter\Adapter.csproj", "{205BBDFA-A500-4683-BBBC-5B1B1A58B8FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge", "Bridge\Bridge.csproj", "{B3517F7E-9624-401F-A513-4D4DDC791867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composite", "Composite\Composite.csproj", "{DF962202-18E5-4F31-82BC-71B42D4C79D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator", "Decorator\Decorator.csproj", "{4DF6C861-F175-4B7D-8B0F-4943AB0EADAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command.csproj", "{C2F84075-1A51-4C1C-B7EC-75334AEB6A4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpreter", "Interpreter\Interpreter.csproj", "{5B07A061-3713-4CB0-9A2D-EB65D25C46C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer", "Observer\Observer.csproj", "{98B7ECD6-AE31-448A-9403-3406E4658751}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethod", "TemplateMethod\TemplateMethod.csproj", "{ADDAF085-C63F-4C27-8934-FF06B556BC94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visitor", "Visitor\Visitor.csproj", "{C09DDE7C-0969-4D6C-B3A9-6C68E9CEBF79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "State", "State\State.csproj", "{F6FFB41C-E4EE-4FFC-BBC7-D4A24816772F}"
 EndProject

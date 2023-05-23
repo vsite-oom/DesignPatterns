@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.FactoryMethod
+﻿namespace DesignPatterns.FactoryMethod
 {
     class Gunnery
     {
@@ -74,9 +68,9 @@ namespace DesignPatterns.FactoryMethod
         }
     }
 
-    class Program
+    static internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
         }
     }

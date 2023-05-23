@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.Visitor
+﻿namespace DesignPatterns.Visitor
 {
     abstract class Shape
     {
@@ -62,10 +55,12 @@ namespace DesignPatterns.Visitor
         public void AcceptVisitor(IShapeVisitor visitor)
         {
             foreach (Shape shape in shapes)
+            { 
                 shape.Accept(visitor);
+            }
         }
 
-        private List<Shape> shapes = new List<Shape>();
+        private readonly List<Shape> shapes = new List<Shape>();
     }
 
     interface IShapeVisitor
@@ -81,7 +76,7 @@ namespace DesignPatterns.Visitor
             this.writer = writer;
         }
 
-        private TextWriter writer;
+        private readonly TextWriter writer;
 
         public void Visit(Circle circle)
         {
@@ -94,7 +89,7 @@ namespace DesignPatterns.Visitor
         }
     }
 
-    class Program
+    static internal class Program
     {
         static void Main(string[] args)
         {

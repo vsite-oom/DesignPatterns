@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.Prototype
+﻿namespace DesignPatterns.Prototype
 {
     class Program
     {
@@ -62,7 +56,7 @@ namespace DesignPatterns.Prototype
         }
 
 
-        static void Main(string[] args)
+        static void Main()
         {
             var triangle1 = new Polygon(new Point(1, 3), new Point(5, 7), new Point(1, 9));
 
