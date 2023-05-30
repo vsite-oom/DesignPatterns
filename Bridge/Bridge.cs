@@ -1,13 +1,13 @@
 ﻿namespace DesignPatterns.Bridge
 {
-    class Writer
+    class Writer : IDisposable
     {
-        private IWriterImplementation implementation;
-
-        public IWriterImplementation Implementation
+        public Writer(string filename)
         {
-            set { implementation = value; }
+            implementation = new XmlPersonWriter(filename);
         }
+
+        private readonly IWriterImplementation implementation;
 
         public void WriteName(string name)
         {
@@ -18,38 +18,19 @@
         {
             implementation.WriteAddress(address);
         }
-    }
 
-    interface IWriterImplementation
-    {
-        void WriteName(string name);
-        void WriteAddress(string address);
-    }
-
-    class XmlPersonWriter : IWriterImplementation, IDisposable
-    {
-        public XmlPersonWriter(string filename)
+        public void Close()
         {
-            streamWriter = new StreamWriter(filename);
-            streamWriter.Write("<doc>");
+            var disposable = implementation as IDisposable;
+            if (disposable != null)
+            {
+                disposable.Dispose();
+            }
         }
 
-        StreamWriter streamWriter;
-
-        public void WriteName(string name)
+        void IDisposable.Dispose()
         {
-            streamWriter.Write($"<name>{name}</name>");
-        }
-
-        public void Dispose()
-        {
-            streamWriter.Write("</doc>");
-            streamWriter.Close();
-        }
-
-        public void WriteAddress(string address)
-        {
-            streamWriter.Write($"<address>{address}</address>");
+            Close();
         }
     }
 
@@ -57,10 +38,8 @@
     {
         static void Main(string[] args)
         {
-            using (XmlPersonWriter xml = new XmlPersonWriter("output.xml"))
+            using (Writer w = new Writer("output.xml"))
             {
-                Writer w = new Writer();
-                w.Implementation = xml;
                 w.WriteName("Pero");
                 w.WriteAddress("Vlaška 8");
             }

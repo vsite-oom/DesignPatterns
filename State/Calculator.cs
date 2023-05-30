@@ -37,7 +37,7 @@
                 case "/":
                     return Operation.Division;
                 default:
-                    return Operation.Unknown; ;
+                    return Operation.Unknown;
             }
         }
     }

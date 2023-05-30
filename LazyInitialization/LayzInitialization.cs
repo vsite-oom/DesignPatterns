@@ -10,19 +10,14 @@
         public readonly string Model;
     }
 
-
     class CarDealer
     {
         private readonly Dictionary<string, Car> availableCars = new Dictionary<string, Car>();
 
         public Car GetCar(string model)
         {
-            if (!availableCars.TryGetValue(model, out Car car))
-            {
-                car = new Car(model);
-                availableCars.Add(model, car);
-            }
-            return car;
+            // TODO: 016 Implement method so that objecst are created on demand.
+            return null;
         }
     }
 

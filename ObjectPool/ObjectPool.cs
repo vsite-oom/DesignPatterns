@@ -14,28 +14,22 @@
 
     class TaxiCarPool
     {
+        // TODO: 017a Modify GetTaxi method so that it creates new taxi only if availableTaxis is empty, otherwise takes it from the queue.
         public Taxi GetTaxi()
         {
             Taxi taxi = null;
-            if (taxis.Count == 0)
-            {
-                taxi = new Taxi();
-            }
-            else
-            {
-                taxi = taxis.Dequeue();
-            }
+            taxi = new Taxi();
             Console.WriteLine($"Taxi No. {taxi.CarNo} taken");
             return taxi;
         }
 
+        // TODO: 017b Modify ReleaseTaxi method so that released taxi is added to availableTaxis.
         public void ReleaseTaxi(Taxi taxi)
         {
             Console.WriteLine($"Taxi No. {taxi.CarNo} released");
-            taxis.Enqueue(taxi);
         }
 
-        private readonly Queue<Taxi> taxis = new Queue<Taxi>();
+        private readonly Queue<Taxi> availableTaxis = new Queue<Taxi>();
     }
 
     static internal class Program

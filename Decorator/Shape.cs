@@ -72,4 +72,7 @@
             g.DrawString("A", SystemFonts.CaptionFont, Brushes.Red, pos);
         }
     }
+
+    // TODO: 024a Create RectangleOutline and RectangleFill decorators.
+    // TODO: 024b Add two new checkboxes to the main form that will activate these decorators.
 }

@@ -16,5 +16,10 @@
         {
             get { return textBoxPassword.Text; }
         }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            buttonOK.Enabled = textBoxUsername.TextLength > 0 && textBoxPassword.TextLength > 0;
+        }
     }
 }

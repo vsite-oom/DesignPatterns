@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>DesignPatterns.Observer</AssemblyName>
+    <RootNamespace>DesignPatterns.Observer</RootNamespace>
   </PropertyGroup>
 
 </Project>

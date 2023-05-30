@@ -9,14 +9,11 @@ namespace DesignPatterns.Adapter
             doc.Load(filename);
         }
 
-        public string[] GetNames()
+        // TODO: 021 Implement GetNames using XmlDocument.GetElementsByTagName method.
+        public IEnumerable<string> GetNames()
         {
             List<string> result = new List<string>();
-            foreach (var element in doc.GetElementsByTagName("name"))
-            {
-                result.Add(((XmlElement)element).InnerText);
-            }
-            return result.ToArray();
+            return result;
         }
         // https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmldocument
         readonly XmlDocument doc = new XmlDocument();
@@ -28,7 +25,9 @@ namespace DesignPatterns.Adapter
         {
             XmlPersonAdapter adapter = new XmlPersonAdapter("names.xml");
             foreach (var name in adapter.GetNames())
+            {
                 Console.WriteLine(name);
+            }
         }
     }
 }

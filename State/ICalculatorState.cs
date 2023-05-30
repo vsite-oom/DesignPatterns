@@ -8,7 +8,7 @@
 
     abstract class CalculatorState : ICalculatorState
     {
-        public CalculatorState(double value)
+        protected CalculatorState(double value)
         {
             Value = value;
         }

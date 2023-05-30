@@ -5,6 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>DesignPatterns.AbstractFactory</RootNamespace>
+    <AssemblyName>DesignPatterns.AbstractFactory</AssemblyName>
   </PropertyGroup>
 
 </Project>

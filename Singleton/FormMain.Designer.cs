@@ -29,72 +29,76 @@ namespace DesignPatterns.Singleton
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBoxData = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonClear = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            button1 = new Button();
+            textBoxData = new TextBox();
+            label1 = new Label();
+            buttonClear = new Button();
+            SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "&Get data";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(18, 63);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(88, 27);
+            button1.TabIndex = 0;
+            button1.Text = "&Get data";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBoxData
             // 
-            this.textBoxData.Location = new System.Drawing.Point(51, 12);
-            this.textBoxData.Name = "textBoxData";
-            this.textBoxData.Size = new System.Drawing.Size(131, 20);
-            this.textBoxData.TabIndex = 1;
+            textBoxData.Location = new Point(59, 14);
+            textBoxData.Margin = new Padding(4, 3, 4, 3);
+            textBoxData.Name = "textBoxData";
+            textBoxData.Size = new Size(152, 23);
+            textBoxData.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "&Data:";
+            label1.AutoSize = true;
+            label1.Location = new Point(14, 17);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(34, 15);
+            label1.TabIndex = 2;
+            label1.Text = "&Data:";
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(107, 55);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(75, 23);
-            this.buttonClear.TabIndex = 3;
-            this.buttonClear.Text = "&Clear data";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            buttonClear.Location = new Point(125, 63);
+            buttonClear.Margin = new Padding(4, 3, 4, 3);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(88, 27);
+            buttonClear.TabIndex = 3;
+            buttonClear.Text = "&Clear data";
+            buttonClear.UseVisualStyleBackColor = true;
+            buttonClear.Click += buttonClear_Click;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(203, 101);
-            this.Controls.Add(this.buttonClear);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxData);
-            this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.Name = "FormMain";
-            this.Text = "Main Form";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(236, 105);
+            Controls.Add(buttonClear);
+            Controls.Add(label1);
+            Controls.Add(textBoxData);
+            Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            Name = "FormMain";
+            Text = "Main Form";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBoxData;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonClear;
+        private Button button1;
+        private TextBox textBoxData;
+        private Label label1;
+        private Button buttonClear;
     }
 }
 
