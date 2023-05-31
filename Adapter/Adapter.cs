@@ -13,10 +13,16 @@ namespace DesignPatterns.Adapter
         public IEnumerable<string> GetNames()
         {
             List<string> result = new List<string>();
+            var nodes=doc.GetElementsByTagName("name");
+            foreach(XmlElement node in nodes)
+            {
+                result.Add(node.InnerText);
+            }
             return result;
         }
         // https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmldocument
-        readonly XmlDocument doc = new XmlDocument();
+        readonly XmlDocument doc = new XmlDocument(); 
+        
     }
 
     internal static class Program
