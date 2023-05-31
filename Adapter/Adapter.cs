@@ -13,6 +13,11 @@ namespace DesignPatterns.Adapter
         public IEnumerable<string> GetNames()
         {
             List<string> result = new List<string>();
+            var nodes = doc.GetElementsByTagName("name");
+            foreach (XmlElement element in nodes)
+            {
+                result.Add(element.InnerText);
+            }
             return result;
         }
         // https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmldocument
