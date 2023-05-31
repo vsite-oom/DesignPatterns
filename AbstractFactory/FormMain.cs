@@ -19,10 +19,13 @@ namespace DesignPatterns.AbstractFactory
             {
                 shapesFactory = new FilledShapesFactory();
             }
-            drawingPane.Assign(shapesFactory.CreateRectangles(rectangleBounds));
+            List<Shape> shapes = new List<Shape>(shapesFactory.CreateRectangles(rectangleBounds));
+            shapes.AddRange(shapesFactory.CreateEllipses(ellipseBounds));
+            drawingPane.Assign(shapes);
 
         }
 
         Rectangle[] rectangleBounds = { new Rectangle(100, 50, 200, 40), new Rectangle(140, 20, 90, 30) };
+        Rectangle[] ellipseBounds = { new Rectangle(120, 70, 40, 40), new Rectangle(240, 70, 40, 40) };
     }
 }
