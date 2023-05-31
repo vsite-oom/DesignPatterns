@@ -9,10 +9,12 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // TODO: 015a Fetch and display value from UserSingleton class
+            var data = UserSingleton.Instance.GetValue();
+            textBoxData.Text = data;
+            //015a Fetch and display value from UserSingleton class
         }
 
-        // TODO: 015b Add a button to the main form that will open a new instance of the form.
+        // 015b Add a button to the main form that will open a new instance of the form.
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
