@@ -80,7 +80,7 @@ namespace DesignPatterns.Singleton
             // 
             button2.Location = new Point(18, 120);
             button2.Name = "button2";
-            button2.Size = new Size(184, 30);
+            button2.Size = new Size(195, 30);
             button2.TabIndex = 4;
             button2.Text = "New Window";
             button2.UseVisualStyleBackColor = true;
