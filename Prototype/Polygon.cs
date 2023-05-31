@@ -48,7 +48,7 @@
         }
         public Polygon Clone()
         {
-            return new Polygon(Points.Select(p=>p).ToArray());
+            return new Polygon(Points.Select(p=>p.Clone()).ToArray());
         }
         object ICloneable.Clone()
         {
