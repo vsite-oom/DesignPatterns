@@ -28,6 +28,18 @@
             g.DrawRectangle(outlinePen, bounds);
         }
     }
+    internal class EllipsesShape : Shape
+    {
+        public EllipsesShape(Rectangle bounds, Pen outlinePen, Brush fillBrush) : base(bounds, outlinePen, fillBrush)
+        {
+
+        }
+        public override void Draw(Graphics g)
+        {
+            g.FillEllipse(fillBrush, bounds);
+            g.DrawEllipse(outlinePen, bounds);
+        }
+    }
 
     // TODO: 012a Add EllipseShape derived from Shape class.
 
@@ -40,6 +52,10 @@
         {
             return PrepareRectangles(bounds);
         }
+       public IEnumerable<Shape> CreateEllipses(IEnumerable<Rectangle> bounds)
+        {
+            return PrepareEllipses(bounds);
+        }
 
         protected virtual IEnumerable<Shape> CreateRectangles(IEnumerable<Rectangle> bounds, Pen pen, Brush brush)
         {
@@ -50,7 +66,7 @@
             }
             return rectangles;
         } 
-        protected virtual IEnumerable<Shape> CreateElipses(IEnumerable<Rectangle> bounds, Pen pen, Brush brush)
+        protected virtual IEnumerable<Shape> CreateEllipses(IEnumerable<Rectangle> bounds, Pen pen, Brush brush)
         {
             var elipses = new List<Shape>();
             foreach (var bound in bounds)
@@ -61,7 +77,7 @@
         }
 
         protected abstract IEnumerable<Shape> PrepareRectangles(IEnumerable<Rectangle> bounds);
-        protected abstract IEnumerable<Shape> PrepareElipses(IEnumerable<Rectangle> bounds);
+        protected abstract IEnumerable<Shape> PrepareEllipses(IEnumerable<Rectangle> bounds);
     }
 
     internal class DraftShapesFactory : AbstractShapesFactory
@@ -72,11 +88,11 @@
             pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             return CreateRectangles(bounds, pen, Brushes.Transparent);
         } 
-        protected override IEnumerable<Shape> PrepareElipses(IEnumerable<Rectangle> bounds)
+        protected override IEnumerable<Shape> PrepareEllipses(IEnumerable<Rectangle> bounds)
         {
             var pen = new Pen(Color.Black);
             pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            return CreateElipses(bounds, pen, Brushes.Transparent);
+            return CreateEllipses(bounds, pen, Brushes.Transparent);
         }
     }
 
@@ -86,9 +102,9 @@
         {
             return CreateRectangles(bounds, Pens.Blue, Brushes.LightGoldenrodYellow);
         } 
-        protected override IEnumerable<Shape> PrepareElipses(IEnumerable<Rectangle> bounds)
+        protected override IEnumerable<Shape> PrepareEllipses(IEnumerable<Rectangle> bounds)
         {
-            return CreateElipses(bounds, Pens.Red, Brushes.Black);
+            return CreateEllipses(bounds, Pens.Red, Brushes.Black);
         }
     }
 

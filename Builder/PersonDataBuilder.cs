@@ -29,6 +29,28 @@
         {
             return "<Person>";
         }
+    } 
+    class JsonDataBuilder : IPersonDataBuilder
+    {
+        public string BuildAddress(string street, string city)
+        {
+            return $"<Address><StreetAddress>{street}</StreetAddress><City>{city}</City></Address>";
+        }
+
+        public string BuildEpilogue()
+        {
+            return "}}}";
+        }
+
+        public string BuildName(string name)
+        {
+            return $"<Name>{name}</Name>";
+        }
+
+        public string BuildPrologue()
+        {
+            return "Person";
+        }
     }
 
     // TODO: 013 Create JsonPersonDataBuilder class and uncomment corresponding code in Main method
