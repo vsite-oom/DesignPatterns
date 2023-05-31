@@ -34,7 +34,7 @@
     {
         public string BuildAddress(string street, string city)
         {
-            return $"<Address><StreetAddress>{street}</StreetAddress><City>{city}</City></Address>";
+            return $"\"Address\" : {{ \"StreetAddress\"{street}</StreetAddress><City>{city}</City></Address>";
         }
 
         public string BuildEpilogue()
@@ -44,12 +44,12 @@
 
         public string BuildName(string name)
         {
-            return $"<Name>{name}</Name>";
+            return $"\"Name\" : \"{name}\", ";
         }
 
         public string BuildPrologue()
         {
-            return "Person";
+            return "( \" Person \" {";
         }
     }
 
