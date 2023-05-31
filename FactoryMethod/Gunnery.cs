@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Data.SqlTypes;
+using System.Diagnostics;
 
 namespace DesignPatterns.FactoryMethod
 {
@@ -22,6 +23,13 @@ namespace DesignPatterns.FactoryMethod
 
     public class Gunnery
     {
+        public Gunnery(ShootingTacticsFactory factory)
+        {
+            this.factory = factory;
+        }
+        
+        private readonly ShootingTacticsFactory factory;
+
         public Square NextTarget()
         {
             return shootingTactics.NextTarget();
@@ -34,18 +42,18 @@ namespace DesignPatterns.FactoryMethod
                 case HitResult.Missed:
                     return;
                 case HitResult.Sunk:
-                    shootingTactics = new RandomShooting();
+                    shootingTactics = factory.Create(CurrentShootingTactics.Random);
                     CurrentShootingTactics = CurrentShootingTactics.Random;
                     return;
                 case HitResult.Hit:
                     switch (CurrentShootingTactics)
                     {
                         case CurrentShootingTactics.Random:
-                            shootingTactics = new ZoneShooting();
+                            shootingTactics = factory.Create(CurrentShootingTactics.Zone);
                             CurrentShootingTactics = CurrentShootingTactics.Zone;
                             return;
                         case CurrentShootingTactics.Zone:
-                            shootingTactics = new LineShooting();
+                            shootingTactics = factory.Create(CurrentShootingTactics.Line);
                             CurrentShootingTactics = CurrentShootingTactics.Line;
                             return;
                         case CurrentShootingTactics.Line:
