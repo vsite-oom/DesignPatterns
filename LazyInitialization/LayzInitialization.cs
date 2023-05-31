@@ -16,6 +16,16 @@
 
         public Car GetCar(string model)
         {
+            if(availableCars.TryGetValue(model, out Car car))
+            {
+                return car;
+            }
+            else
+            {
+                var x = new Car(model);
+                availableCars.Add(model, x);
+                return x;
+            }
             // TODO: 016 Implement method so that objecst are created on demand.
             return null;
         }
