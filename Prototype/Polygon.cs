@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Prototype
 {
-    class Point
+    class Point : ICloneable
     {
         public Point(double x, double y)
         {
@@ -21,9 +21,19 @@
             X += deltaX;
             Y += deltaY;
         }
+
+        public Point Clone()
+        {
+            return (Point)MemberwiseClone();
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
+        }
     }
 
-    class Polygon
+    class Polygon : ICloneable
     {
         public Polygon(params Point[] points)
         {
@@ -36,6 +46,16 @@
             {
                 point.Move(deltaX, deltaY);
             }
+        }
+
+        public Polygon Clone()
+        {
+            return new Polygon(Points.Select(p => p.Clone()).ToArray());
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
         }
 
         public readonly IEnumerable<Point> Points;
