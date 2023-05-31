@@ -1,12 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>DesignPatterns.AbstractFactory</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>DesignPatterns.AbstractFactory</AssemblyName>
+    <RootNamespace>DesignPatterns.AbstractFactory</RootNamespace>
   </PropertyGroup>
 
 </Project>

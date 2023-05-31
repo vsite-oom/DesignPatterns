@@ -1,96 +1,74 @@
 ﻿namespace DesignPatterns.AbstractFactory
 {
-    interface IShipwright
+    internal abstract class Shape
     {
-        Fleet CreateFleet();
-    }
-
-    class BeginnerShipwright : IShipwright
-    {
-        public Fleet CreateFleet()
+        protected Shape(Rectangle bounds, Pen outlinePen, Brush fillBrush)
         {
-            throw new NotImplementedException();
-        }
-    }
-
-    class AdvancedShipwright : IShipwright
-    {
-        public Fleet CreateFleet()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    interface IGunnery
-    {
-    }
-
-    class BeginnerGunnery : IGunnery
-    { }
-
-    class AdvancedGunnery : IGunnery
-    { }
-
-    interface IGameItemFactory
-    {
-        IShipwright CreateShipwright();
-        IGunnery CreateGunnery();
-    }
-
-    class BeginersItemFactory : IGameItemFactory
-    {
-        public IGunnery CreateGunnery()
-        {
-            throw new NotImplementedException();
+            this.bounds = bounds;
+            this.outlinePen = outlinePen;
+            this.fillBrush = fillBrush;
         }
 
-        public IShipwright CreateShipwright()
+        public abstract void Draw(Graphics g);
+
+        protected readonly Rectangle bounds;
+        protected readonly Pen outlinePen;
+        protected readonly Brush fillBrush;
+    }
+
+    internal class RectangleShape : Shape
+    {
+        public RectangleShape(Rectangle bounds, Pen outlinePen, Brush fillBrush) : base(bounds, outlinePen, fillBrush)
         {
-            throw new NotImplementedException();
+
+        }
+        public override void Draw(Graphics g)
+        {
+            g.FillRectangle(fillBrush, bounds);
+            g.DrawRectangle(outlinePen, bounds);
         }
     }
 
-    class ProfessionalsItemFactory : IGameItemFactory
+    // TODO: 012a Add EllipseShape derived from Shape class.
+
+    // TODO: 012b Extend ShapesFactory classes with CreateEllipses methods.
+
+
+    internal abstract class AbstractShapesFactory
     {
-        public IGunnery CreateGunnery()
+        public IEnumerable<RectangleShape> CreateRectangles(IEnumerable<Rectangle> bounds)
         {
-            throw new NotImplementedException();
+            return PrepareRectangles(bounds);
         }
 
-        public IShipwright CreateShipwright()
+        protected virtual IEnumerable<RectangleShape> CreateRectangles(IEnumerable<Rectangle> bounds, Pen pen, Brush brush)
         {
-            throw new NotImplementedException();
+            var rectangles = new List<RectangleShape>();
+            foreach (var bound in bounds)
+            {
+                rectangles.Add(new RectangleShape(bound, pen, brush));
+            }
+            return rectangles;
+        }
+
+        protected abstract IEnumerable<RectangleShape> PrepareRectangles(IEnumerable<Rectangle> bounds);
+    }
+
+    internal class DraftShapesFactory : AbstractShapesFactory
+    {
+        protected override IEnumerable<RectangleShape> PrepareRectangles(IEnumerable<Rectangle> bounds)
+        {
+            var pen = new Pen(Color.Black);
+            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            return CreateRectangles(bounds, pen, Brushes.Transparent);
         }
     }
 
-    class Fleet { }
-
-    class Game
+    internal class FilledShapesFactory : AbstractShapesFactory
     {
-        public Game(IGameItemFactory gameItemFactory)
+        protected override IEnumerable<RectangleShape> PrepareRectangles(IEnumerable<Rectangle> bounds)
         {
-            this.gameItemFactory = gameItemFactory;
-        }
-
-        private IGameItemFactory gameItemFactory;
-
-        private Fleet CreateFleet()
-        {
-            var shipwright = gameItemFactory.CreateShipwright();
-            return shipwright.CreateFleet();
-        }
-
-        private void StartShooting()
-        {
-            var gunnery = gameItemFactory.CreateGunnery();
-            // ...
-        }
-    }
-
-    class Program
-    {
-        static void Main()
-        {
+            return CreateRectangles(bounds, Pens.Blue, Brushes.LightGoldenrodYellow);
         }
     }
 }
