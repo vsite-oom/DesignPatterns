@@ -16,8 +16,15 @@
 
         public Car GetCar(string model)
         {
+            
             // TODO: 016 Implement method so that objecst are created on demand.
-            return null;
+            if (availableCars.TryGetValue(model, out Car car))
+            {
+                return car;
+            }
+            car = new Car(model);
+            availableCars.Add(model, car);
+            return car;
         }
     }
 
