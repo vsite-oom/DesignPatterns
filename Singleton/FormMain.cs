@@ -9,6 +9,8 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var data = UserSingleton.Instance.GetValue();
+            textBoxData.Text = data.ToString();
             // TODO: 015a Fetch and display value from UserSingleton class
         }
 
@@ -23,6 +25,11 @@
         {
             var newForm = new FormMain();
             newForm.ShowDialog(this);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

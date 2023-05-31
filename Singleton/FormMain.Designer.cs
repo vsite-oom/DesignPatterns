@@ -33,6 +33,7 @@ namespace DesignPatterns.Singleton
             textBoxData = new TextBox();
             label1 = new Label();
             buttonClear = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -75,11 +76,22 @@ namespace DesignPatterns.Singleton
             buttonClear.UseVisualStyleBackColor = true;
             buttonClear.Click += buttonClear_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(125, 96);
+            button2.Name = "button2";
+            button2.Size = new Size(86, 27);
+            button2.TabIndex = 4;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += buttonNewForm_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(236, 105);
+            ClientSize = new Size(234, 135);
+            Controls.Add(button2);
             Controls.Add(buttonClear);
             Controls.Add(label1);
             Controls.Add(textBoxData);
@@ -99,6 +111,7 @@ namespace DesignPatterns.Singleton
         private TextBox textBoxData;
         private Label label1;
         private Button buttonClear;
+        private Button button2;
     }
 }
 
