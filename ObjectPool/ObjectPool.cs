@@ -17,15 +17,22 @@
         // TODO: 017a Modify GetTaxi method so that it creates new taxi only if availableTaxis is empty, otherwise takes it from the queue.
         public Taxi GetTaxi()
         {
-            Taxi taxi = null;
-            taxi = new Taxi();
-            Console.WriteLine($"Taxi No. {taxi.CarNo} taken");
-            return taxi;
+                Taxi taxi = null;
+            if (availableTaxis.Count == 0)
+            {
+                taxi = new Taxi();
+                Console.WriteLine($"Taxi No. {taxi.CarNo} taken");
+                return taxi;
+            }
+            taxi = availableTaxis.Dequeue();
+            Console.WriteLine($"Txi no. {taxi.CarNo} taken from pool");
+            return taxi;  
         }
 
         // TODO: 017b Modify ReleaseTaxi method so that released taxi is added to availableTaxis.
         public void ReleaseTaxi(Taxi taxi)
         {
+            availableTaxis.Enqueue(taxi);
             Console.WriteLine($"Taxi No. {taxi.CarNo} released");
         }
 
