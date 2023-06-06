@@ -2,13 +2,14 @@
 {
     public class ConstantTerminalExpression : IExpression
     {
-        private readonly bool value;
-        public ConstantTerminalExpression(bool value)
+        private readonly double value;
+
+        public ConstantTerminalExpression(double value)
         {
             this.value = value;
         }
 
-        public bool Interpret(Context context)
+        public double Interpret(Context context)
         {
             return value;
         }

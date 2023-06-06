@@ -3,11 +3,13 @@
     public class VariableTerminalExpression : IExpression
     {
         private readonly string name;
+        
         public VariableTerminalExpression(string name)
         {
             this.name = name;
         }
-        public bool Interpret(Context context)
+
+        public double Interpret(Context context)
         {
             return context.GetValue(name);
         }

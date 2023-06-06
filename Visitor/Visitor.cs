@@ -89,6 +89,8 @@
         }
     }
 
+    // TOTO: 037 Add and implement MoveShapeVisitor class and test it
+
     static internal class Program
     {
         static void Main(string[] args)

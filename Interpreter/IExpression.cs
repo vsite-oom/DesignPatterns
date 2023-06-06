@@ -2,6 +2,6 @@
 {
     public interface IExpression
     {
-       bool Interpret(Context context);
+       double Interpret(Context context);
     }
 }

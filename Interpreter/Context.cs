@@ -2,18 +2,18 @@
 {
     public class Context
     {
-        private readonly Dictionary<string, bool> variables = new Dictionary<string, bool>();
+        private readonly Dictionary<string, double> variables = new Dictionary<string, double>();
 
         public Context()
         {
         }
 
-        public Context(Dictionary<string, bool> variables)
+        public Context(Dictionary<string, double> variables)
         {
             this.variables = variables;
         }
 
-        public bool GetValue(string variableName)
+        public double GetValue(string variableName)
         {
             return variables[variableName];
         }
