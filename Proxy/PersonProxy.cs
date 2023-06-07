@@ -25,8 +25,31 @@
             }
         }
 
-        public string FamilyName => throw new NotImplementedException();
-
-        public DateTime DateOfBirth => throw new NotImplementedException();
+        public string FamilyName
+        {
+            get
+            {
+                if (values.TryGetValue("Family Name", out object name))
+                {
+                    return $"Cached: {name}";
+                }
+                name = realPerson.FamilyName;
+                values.Add("Family Name", name);
+                return (string)name;
+            }
+        }
+        public string DateOfBirth
+        {
+            get
+            {
+                if (values.TryGetValue("Date of Birth", out object name))
+                {
+                    return $"Cached: {name}";
+                }
+                name = realPerson.DateOfBirth;
+                values.Add("Date of Birth", name);
+                return (string)name;
+            }
+        }
     }
 }

@@ -10,22 +10,22 @@ namespace DesignPatterns.Proxy
     {
         string Name { get; }
         string FamilyName { get; }
-        DateTime DateOfBirth { get; }
+        string DateOfBirth { get; }
     }
 
     internal class RealPerson : IPerson
     {
-        public RealPerson(string name, string familyName, DateTime dateOgBirth)
+        public RealPerson(string name, string familyName, DateTime dateOfBirth)
         {
             Name = name;
             FamilyName = familyName;
-            DateOfBirth = DateOfBirth;
+            DateOfBirth = dateOfBirth.ToShortDateString();
         }
 
         public string Name { get; private set; }
 
         public string FamilyName { get; private set; }
 
-        public DateTime DateOfBirth { get; private set; }
+        public string DateOfBirth { get; private set; }
     }
 }
