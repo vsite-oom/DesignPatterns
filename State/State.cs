@@ -4,6 +4,7 @@ namespace DesignPatterns.State
 {
     class Program
     {
+        // TODO: 034 Implement MultiplicationState and DivisionState classes and test functionality
         static void Main(string[] args)
         {
             string expression = "+ 3 7 9 * 10.4 2 ÷ 2 - 5 -4.2 12";
