@@ -55,7 +55,7 @@
         public void AcceptVisitor(IShapeVisitor visitor)
         {
             foreach (Shape shape in shapes)
-            { 
+            {
                 shape.Accept(visitor);
             }
         }
@@ -90,6 +90,30 @@
     }
 
     // TOTO: 037 Add and implement MoveShapeVisitor class and test it
+    public class MoveShapeVisitor : IShapeVisitor
+    {
+        public readonly int dx;
+        public readonly int dy;
+
+
+        public MoveShapeVisitor(int dx, int dy)
+        {
+            this.dx = dx;
+            this.dy = dy;
+        }
+
+        void IShapeVisitor.Visit(Circle circle)
+        {
+            circle.xCenter = this.dx;
+            circle.yCenter = this.dy;
+        }
+
+        void IShapeVisitor.Visit(Rectangle rectangle)
+        {
+            rectangle.xLeft = this.dx;
+            rectangle.yLeft = this.dy;
+        }
+    }
 
     static internal class Program
     {
@@ -101,6 +125,13 @@
 
             StringWriter sw = new StringWriter();
             SaveShapeVisitor visitor = new SaveShapeVisitor(sw);
+            drawing.AcceptVisitor(visitor);
+
+            Console.WriteLine(sw.ToString());
+
+            var visitor2=new MoveShapeVisitor(3,4);
+            drawing.AcceptVisitor(visitor2);
+
             drawing.AcceptVisitor(visitor);
 
             Console.WriteLine(sw.ToString());
