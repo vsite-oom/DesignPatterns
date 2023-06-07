@@ -49,6 +49,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "7- Visitor", "Visitor\7- Vi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4 - State", "State\4 - State.csproj", "{83A1E750-740D-44C2-BCBF-6718E3368359}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8 - NullObject", "NullObject\8 - NullObject.csproj", "{AC480BA5-D8A5-4C1B-8C54-C405C9145619}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{83A1E750-740D-44C2-BCBF-6718E3368359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A1E750-740D-44C2-BCBF-6718E3368359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83A1E750-740D-44C2-BCBF-6718E3368359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC480BA5-D8A5-4C1B-8C54-C405C9145619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC480BA5-D8A5-4C1B-8C54-C405C9145619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC480BA5-D8A5-4C1B-8C54-C405C9145619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC480BA5-D8A5-4C1B-8C54-C405C9145619}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -145,6 +151,7 @@ Global
 		{ADDAF085-C63F-4C27-8934-FF06B556BC94} = {F1E52B38-80B8-4182-8178-67B022C4E3AE}
 		{C09DDE7C-0969-4D6C-B3A9-6C68E9CEBF79} = {F1E52B38-80B8-4182-8178-67B022C4E3AE}
 		{83A1E750-740D-44C2-BCBF-6718E3368359} = {F1E52B38-80B8-4182-8178-67B022C4E3AE}
+		{AC480BA5-D8A5-4C1B-8C54-C405C9145619} = {F1E52B38-80B8-4182-8178-67B022C4E3AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {656EDEBF-F10B-4E14-8548-0F9E73CF912A}
