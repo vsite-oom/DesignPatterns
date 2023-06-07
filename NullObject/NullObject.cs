@@ -2,21 +2,28 @@
 {
     internal class Program
     {
-        private static void DoSomething(ConsoleLogger logger)
+        private static void DoSomething(ILogger logger)
         {
             logger.Log($"I am in '{System.Reflection.MethodBase.GetCurrentMethod().Name}'");
         }
 
-        private static void DoSomethingElse(ConsoleLogger logger)
+        private static void DoSomethingElse(ILogger logger)
         {
             logger.Log($"I am in '{System.Reflection.MethodBase.GetCurrentMethod().Name}'");
         }
 
         // TODO: 038 Add NullLogger class to prevent logging output
-
+        
+        
         private static void Main(string[] args)
         {
-            var logger = new ConsoleLogger();
+            ILogger logger = new ConsoleLogger();
+
+            DoSomething(logger);
+            DoSomethingElse(logger);
+            DoSomething(logger);
+
+            logger=new NullLogger();
 
             DoSomething(logger);
             DoSomethingElse(logger);
