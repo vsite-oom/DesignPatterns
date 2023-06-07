@@ -29,7 +29,11 @@
             Console.WriteLine(result);
 
             // TODO: 035a Implement and test Multiply and Divide classes
-
+            //A*B/3
+            IExpression multiply=new Multiply(new VariableTerminalExpression("a"),new VariableTerminalExpression("b"));
+            IExpression devide=new Divide(multiply, new ConstantTerminalExpression(3));
+            result = devide.Interpret(new Context(new Dictionary<string, double>() { { "a", 5 }, { "b", 12 }, { "c", 3 } }));
+            Console.WriteLine(result);  
             // TODO: 035b Add Power class, implement i and test it
         }
     }

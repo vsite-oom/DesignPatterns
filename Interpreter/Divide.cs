@@ -2,16 +2,18 @@
 {
     public class Divide : IExpression
     {
-        private IExpression expression;
+        private IExpression leftside;
+        private IExpression rightside;
 
-        public Divide(IExpression expression)
+        public Divide(IExpression leftside, IExpression rightside)
         {
-            this.expression = expression;
+            this.leftside = leftside;
+            this.rightside = rightside;
         }
 
         public double Interpret(Context context)
         {
-            throw new NotImplementedException();
+            return leftside.Interpret(context) / rightside.Interpret(context);
         }
     }
 }

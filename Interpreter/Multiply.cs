@@ -2,14 +2,16 @@
 {
     public class Multiply : IExpression
     {
-        public Multiply(IExpression expression)
+        private IExpression leftside; private IExpression rightside;
+        public Multiply(IExpression leftside,IExpression rightside)
         {
-            throw new NotImplementedException();
+            this.leftside = leftside;
+            this.rightside = rightside; 
         }
 
         public double Interpret(Context context)
         {
-            throw new NotImplementedException();
+            return leftside.Interpret(context)*rightside.Interpret(context);
         }
     }
 }
