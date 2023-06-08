@@ -15,11 +15,11 @@ namespace DesignPatterns.Proxy
 
     internal class RealPerson : IPerson
     {
-        public RealPerson(string name, string familyName, DateTime dateOgBirth)
+        public RealPerson(string name, string familyName, DateTime dateOfBirth)
         {
             Name = name;
             FamilyName = familyName;
-            DateOfBirth = DateOfBirth;
+            DateOfBirth = dateOfBirth;
         }
 
         public string Name { get; private set; }
