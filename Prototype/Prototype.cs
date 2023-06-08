@@ -10,7 +10,8 @@
             Console.WriteLine(string.Join(", ", triangle1.Points));
             Console.WriteLine();
 
-            // TODO: 014 Implement ICloenable interface for Polygon class and uncomment statement below.
+            // TODO: 1.3 Implement ICloneable interface for Polygon class and uncomment statement below.
+
             //var triangle2 = triangle1.Clone();
             var triangle2 = triangle1;
             triangle1.Move(3, -5);

@@ -73,6 +73,7 @@
         }
     }
 
-    // TODO: 024a Create RectangleOutline and RectangleFill decorators.
-    // TODO: 024b Add two new checkboxes to the main form that will activate these decorators.
+    // TODO: 2.3a Create RectangleOutline and RectangleFill decorators.
+
+    // TODO: 2.3b Add two new checkboxes to the main form that will activate these decorators.
 }

@@ -32,8 +32,6 @@
             textBoxName = new TextBox();
             textBoxFamilyName = new TextBox();
             label2 = new Label();
-            label3 = new Label();
-            textBox1 = new TextBox();
             buttonGet = new Button();
             SuspendLayout();
             // 
@@ -71,26 +69,9 @@
             label2.TabIndex = 2;
             label2.Text = "&Family name:";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 73);
-            label3.Name = "label3";
-            label3.Size = new Size(76, 15);
-            label3.TabIndex = 4;
-            label3.Text = "&Date of birth:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(94, 70);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(201, 23);
-            textBox1.TabIndex = 5;
-            // 
             // buttonGet
             // 
-            buttonGet.Location = new Point(220, 109);
+            buttonGet.Location = new Point(220, 89);
             buttonGet.Name = "buttonGet";
             buttonGet.Size = new Size(75, 23);
             buttonGet.TabIndex = 6;
@@ -102,10 +83,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(307, 144);
+            ClientSize = new Size(307, 124);
             Controls.Add(buttonGet);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
             Controls.Add(textBoxFamilyName);
             Controls.Add(label2);
             Controls.Add(textBoxName);
@@ -125,8 +104,6 @@
         private TextBox textBoxName;
         private TextBox textBoxFamilyName;
         private Label label2;
-        private Label label3;
-        private TextBox textBox1;
         private Button buttonGet;
     }
 }

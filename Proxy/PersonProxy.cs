@@ -9,13 +9,13 @@
 
         private readonly RealPerson realPerson;
 
-        Dictionary<string, object> values = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> values = new Dictionary<string, object>();
 
         public string Name
         {
             get
             {
-                if (values.TryGetValue("Name", out object name))
+                if (values.TryGetValue("Name", out var name))
                 {
                     return $"Cached: {name}";
                 }
@@ -26,7 +26,5 @@
         }
 
         public string FamilyName => throw new NotImplementedException();
-
-        public DateTime DateOfBirth => throw new NotImplementedException();
     }
 }

@@ -33,5 +33,5 @@
         }
     }
 
-    // TODO: 022 Create a simple text writer that implements IWriterImplementation interface and replace XmlPersonWriter in Writer class with the new class.
+    // TODO: 2.1 Create a simple text writer that implements IWriterImplementation interface and replace XmlPersonWriter in Writer class with the new class.
 }

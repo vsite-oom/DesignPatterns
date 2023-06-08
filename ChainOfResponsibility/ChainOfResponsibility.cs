@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        // TODO: 039 Implement Manufacturer class and append it into the chain of responsibilities.
+        // TODO: 3.7 Implement Manufacturer class and append it into the chain of responsibilities.
         private static void Main(string[] args)
         {
             var store = new Store();

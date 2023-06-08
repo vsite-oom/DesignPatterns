@@ -31,6 +31,6 @@
         }
     }
 
-    // TODO: 013 Create JsonPersonDataBuilder class and uncomment corresponding code in Main method
+    // TODO: 1.2 Create JsonPersonDataBuilder class and uncomment corresponding code in Main method
 
 }

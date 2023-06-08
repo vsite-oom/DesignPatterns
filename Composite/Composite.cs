@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Composite
 {
-    // TODO: 023a Create Selection class that implements Composite pattern and implements IShape interface.
+    // TODO: 2.2a Create Selection class that implements Composite pattern and implements IShape interface.
 
     static internal class Program
     {
@@ -10,7 +10,8 @@
             Circle c2 = new Circle();
             Rectangle r1 = new Rectangle();
 
-            // TODO: 023b Uncomment lines below and test the functionality.
+            // TODO: 2.2b Uncomment lines below and test the functionality.
+
             Console.WriteLine("Move first selection:");
             //var sel = new Selection();
             //sel.AddShape(c1);

@@ -6,7 +6,7 @@
         void Undo();
     }
 
-    // TODO: 032a Create MoveShapeCommand class that implements ICommand
+    // TODO: 3.1a Create MoveShapeCommand class that implements ICommand.
 
     class Program
     {
@@ -21,7 +21,8 @@
             sel.AddShape(r1);
             sel.AddShape(c2);
 
-            // TODO: 032b Uncomment statements below and run the program.
+            // TODO: 3.1b Uncomment statements below and run the program.
+
             //MoveShapeCommand cmd = new MoveShapeCommand(sel, 3, 7);
             //Console.WriteLine("Execute move shape command");
             //cmd.Execute();

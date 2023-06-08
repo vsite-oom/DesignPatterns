@@ -12,7 +12,7 @@
             logger.Log($"I am in '{System.Reflection.MethodBase.GetCurrentMethod().Name}'");
         }
 
-        // TODO: 038 Add NullLogger class to prevent logging output
+        // TODO: 3.6 Add NullLogger class to prevent logging output
 
         private static void Main(string[] args)
         {

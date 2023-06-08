@@ -2,7 +2,7 @@
 {
     static internal class Program
     {
-        // TODO: 011 Create Factory method to be used by Gunnery class
+        // TODO: 1.0 Create Factory method to be used by Gunnery class.
 
         static void Main()
         {

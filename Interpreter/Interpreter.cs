@@ -4,33 +4,54 @@
     {
         static void Main(string[] args)
         {
-            // Primjer: a + 5
-            IExpression br1 = new ConstantTerminalExpression(5);
-            IExpression br2 = new VariableTerminalExpression("a");
-            IExpression add = new Add(br1, br2);
-            
-            var result = add.Interpret(new Context(new Dictionary<string, double>() { { "a", 10 } }));
-            Console.WriteLine(result);
+            // Expression: 3 + 5
+            IExpression constant3 = new ConstantTerminalExpression(3);
+            IExpression constant5 = new ConstantTerminalExpression(5);
+            IExpression sum3and5 = new Add(constant3, constant5);
+            var result = sum3and5.Interpret(new Context());
+            Console.WriteLine($"3 + 5 = {result}");
 
-            // Primjer: a - b
-            IExpression br3 = new VariableTerminalExpression("b");
-            IExpression subtract = new Subtract(br2, br3);
-            result = subtract.Interpret(new Context(new Dictionary<string, double>() { { "a", 5}, { "b", 12 } }));
-            Console.WriteLine(result);
+            // Expression: 5 + a
+            IExpression a = new VariableTerminalExpression("a");
+            IExpression sum5andA = new Add(constant5, a);
 
-            // Primjer a - b + c
-            IExpression triplet = new Add(subtract, new VariableTerminalExpression("c"));
-            result = triplet.Interpret(new Context(new Dictionary<string, double>() { { "a", 5 }, { "b", 12 }, { "c", 3 } }));
-            Console.WriteLine(result);
+            // Evaluate for a = 10
+            var context = new Context(new Dictionary<string, double>() { { "a", 10 } });
+            result = sum5andA.Interpret(context);
+            Console.WriteLine($"5 + a = {result}, for {context}");
+            // Evaluate for a = 8            
+            context = new Context(new Dictionary<string, double>() { { "a", 8 } });
+            result = sum5andA.Interpret(context);
+            Console.WriteLine($"5 + a = {result}, for {context}");
 
-            // Primjer -(a - b + c)
+            // Expression: a - b
+            IExpression b = new VariableTerminalExpression("b");
+            IExpression subtractBfromA = new Subtract(a, b);
+            // Evaluate for a = 5, b = 12
+            context = new Context(new Dictionary<string, double>() { { "a", 5 }, { "b", 12 } });
+            result = subtractBfromA.Interpret(context);
+            Console.WriteLine($"a - b = {result}, for {context}");
+
+            // Expression: a - b + c
+            IExpression triplet = new Add(subtractBfromA, new VariableTerminalExpression("c"));
+            // Evaluate for a = 5, b = 12, c = 3
+            context = new Context(new Dictionary<string, double>() { { "a", 5 }, { "b", 12 }, { "c", 3 } });
+            result = triplet.Interpret(context);
+            Console.WriteLine($"a - b + c = {result}, for {context}");
+            // Evaluate for a = 17, b = 5, c = 2
+            context = new Context(new Dictionary<string, double>() { { "a", 17 }, { "b", 5 }, { "c", 2 } });
+            result = triplet.Interpret(context);
+            Console.WriteLine($"a - b + c = {result}, for {context}");
+
+            // Expression: -(a - b + c)
             IExpression minusTriplet = new Minus(triplet);
-            result = minusTriplet.Interpret(new Context(new Dictionary<string, double>() { { "a", 5 }, { "b", 12 }, { "c", 3 } }));
-            Console.WriteLine(result);
+            // Evaluate for a = 17, b = 5, c = 2
+            result = minusTriplet.Interpret(context);
+            Console.WriteLine($"-(a - b + c) = {result}, for {context}");
 
-            // TODO: 035a Implement and test Multiply and Divide classes
+            // TODO: 3.3a Implement and test Multiply and Divide classes.
 
-            // TODO: 035b Add Power class, implement i and test it
+            // TODO: 3.3b Add Power class, implement and test it.
         }
     }
 }

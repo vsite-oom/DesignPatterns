@@ -14,7 +14,7 @@
 
     class TaxiCarPool
     {
-        // TODO: 017a Modify GetTaxi method so that it creates new taxi only if availableTaxis is empty, otherwise takes it from the queue.
+        // TODO: 1.6a Modify GetTaxi method so that it creates new taxi only if availableTaxis is empty, otherwise takes it from the queue.
         public Taxi GetTaxi()
         {
             Taxi taxi = null;
@@ -23,7 +23,7 @@
             return taxi;
         }
 
-        // TODO: 017b Modify ReleaseTaxi method so that released taxi is added to availableTaxis.
+        // TODO: 1.6b Modify ReleaseTaxi method so that released taxi is added to availableTaxis.
         public void ReleaseTaxi(Taxi taxi)
         {
             Console.WriteLine($"Taxi No. {taxi.CarNo} released");

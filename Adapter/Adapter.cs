@@ -9,7 +9,7 @@ namespace DesignPatterns.Adapter
             doc.Load(filename);
         }
 
-        // TODO: 021 Implement GetNames using XmlDocument.GetElementsByTagName method.
+        // TODO: 2.0 Implement GetNames using XmlDocument.GetElementsByTagName method.
         public IEnumerable<string> GetNames()
         {
             List<string> result = new List<string>();

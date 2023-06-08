@@ -29,9 +29,9 @@
         }
     }
 
-    // TODO: 012a Add EllipseShape derived from Shape class.
+    // TODO: 1.1a Add EllipseShape derived from Shape class.
 
-    // TODO: 012b Extend ShapesFactory classes with CreateEllipses methods.
+    // TODO: 1.1b Extend ShapesFactory classes with CreateEllipses methods.
 
 
     internal abstract class AbstractShapesFactory

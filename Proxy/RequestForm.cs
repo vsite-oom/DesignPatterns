@@ -5,7 +5,7 @@ namespace DesignPatterns.Proxy
         public RequestForm()
         {
             InitializeComponent();
-            realPerson = new RealPerson("Bruce Frederick Joseph", " Springsteen", new DateTime(1949, 9, 23));
+            realPerson = new RealPerson("Bruce Frederick Joseph", " Springsteen");
             personProxy = new PersonProxy(realPerson);
         }
 
@@ -15,7 +15,7 @@ namespace DesignPatterns.Proxy
         private void buttonGet_Click(object sender, EventArgs e)
         {
             textBoxName.Text = personProxy.Name;
-            // TODO: 025 Add code to fill family name and date of birth and implement fetching in PersonProxy
+            // TODO: 2.4 Add code to fill family name and implement fetching in PersonProxy.
         }
     }
 }

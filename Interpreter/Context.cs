@@ -17,5 +17,15 @@
         {
             return variables[variableName];
         }
+
+        public override string ToString()
+        {
+            if (variables.Count == 0)
+            {
+                return string.Empty;
+            }
+            var keValues = variables.Select(kv => $"{kv.Key} = {kv.Value}");
+            return string.Join(", ", keValues);
+        }
     }
 }

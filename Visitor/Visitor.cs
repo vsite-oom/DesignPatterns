@@ -89,7 +89,7 @@
         }
     }
 
-    // TOTO: 037 Add and implement MoveShapeVisitor class and test it
+    // TODO: 3.5 Add and implement MoveShapeVisitor class and test it.
 
     static internal class Program
     {
