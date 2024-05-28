@@ -30,7 +30,7 @@
             {
                 if (checkBox.Checked)
                 {
-                    textBoxPublisher.KeyPress += subscriber.Publisher_KeyPress;
+                    textBoxPublisher.KeyPress += subscriber.Publisher_KeyPress!;
                 }
             }
         }

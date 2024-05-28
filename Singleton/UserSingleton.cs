@@ -32,8 +32,8 @@
             } while (!validCredentials);
         }
 
-        private string username;
-        private string password;
+        private string? username;
+        private string? password;
 
         public static UserSingleton Instance
         {
@@ -42,7 +42,7 @@
 
         public string GetValue()
         {
-            if (CheckCredentials(username, password))
+            if (CheckCredentials(username!, password!))
                 return $"{username} + {password}";
             return string.Empty;
         }

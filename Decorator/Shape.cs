@@ -69,7 +69,7 @@
         {
             shape.Draw(g);
             var pos = new Point(shape.Bounds.X + shape.Bounds.Width / 2, shape.Bounds.Y + shape.Bounds.Height / 2);
-            g.DrawString("A", SystemFonts.CaptionFont, Brushes.Red, pos);
+            g.DrawString("A", SystemFonts.CaptionFont!, Brushes.Red, pos);
         }
     }
 

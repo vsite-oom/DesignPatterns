@@ -2,7 +2,7 @@
 {
     internal class Warehouse : ProductSupplier
     {
-        public override Product GetProduct()
+        public override Product? GetProduct()
         {
             if (productsInWarehouse.Count > 0)
             {

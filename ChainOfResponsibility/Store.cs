@@ -2,7 +2,7 @@
 {
     internal class Store : ProductSupplier
     {
-        public override Product GetProduct()
+        public override Product? GetProduct()
         {
             if (productsOnShelf.Count > 0)
             {
@@ -10,7 +10,7 @@
                 productsOnShelf.RemoveAt(0);
                 return product;
             }
-            return nextHandler.GetProduct();
+            return nextHandler!.GetProduct();
         }
 
         private readonly List<Product> productsOnShelf = new List<Product>();

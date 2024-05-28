@@ -23,15 +23,16 @@
 
     abstract class Grid
     {
-        public Grid(int rows, int columns)
+        protected Grid(int rows, int columns)
         {
             Rows = rows;
             Columns = columns;
+            squares = new Square[Rows, Columns];
         }
 
         public readonly int Rows;
         public readonly int Columns;
-        protected readonly Square[,] squares;
+        protected readonly Square?[,] squares;
 
         private List<List<Square>> GetHorizontalPlacements(int length)
         {
@@ -44,7 +45,7 @@
                     // instead of this:
                     // if (squares[r, c] != null && squares[r, c].SquareState == SquareState.Initial
                     if (IsSquareAvailable(r, c))
-                        gathered.Enqueue(squares[r, c]);
+                        gathered.Enqueue(squares[r, c]!);
                     else
                         gathered.Clear();
 
@@ -78,7 +79,7 @@
         }
         protected override bool IsSquareAvailable(int row, int column)
         {
-            return squares[row, column].SquareState == SquareState.Initial;
+            return squares[row, column]!.SquareState == SquareState.Initial;
         }
     }
     class Program

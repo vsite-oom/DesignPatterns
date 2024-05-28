@@ -7,7 +7,7 @@ namespace DesignPatterns.AbstractFactory
             InitializeComponent();
         }
 
-        private AbstractShapesFactory shapesFactory = null;
+        private AbstractShapesFactory? shapesFactory;
 
         private void radioButtonStyle_CheckedChanged(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace DesignPatterns.AbstractFactory
             {
                 shapesFactory = new FilledShapesFactory();
             }
-            drawingPane.Assign(shapesFactory.CreateRectangles(rectangleBounds));
+            drawingPane.Assign(shapesFactory!.CreateRectangles(rectangleBounds));
 
         }
 

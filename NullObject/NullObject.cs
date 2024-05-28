@@ -4,12 +4,12 @@
     {
         private static void DoSomething(ConsoleLogger logger)
         {
-            logger.Log($"I am in '{System.Reflection.MethodBase.GetCurrentMethod().Name}'");
+            logger.Log($"I am in '{System.Reflection.MethodBase.GetCurrentMethod()!.Name}'");
         }
 
         private static void DoSomethingElse(ConsoleLogger logger)
         {
-            logger.Log($"I am in '{System.Reflection.MethodBase.GetCurrentMethod().Name}'");
+            logger.Log($"I am in '{System.Reflection.MethodBase.GetCurrentMethod()!.Name}'");
         }
 
         // TODO: 3.6 Add NullLogger class to prevent logging output

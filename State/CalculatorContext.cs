@@ -36,12 +36,12 @@
 
         public void Evaluate(double val)
         {
-            calculatorState.Evaluate(val);
+            calculatorState!.Evaluate(val);
         }
 
-        private ICalculatorState calculatorState;
+        private ICalculatorState? calculatorState;
 
-        private double value;
+        private readonly double value = 0;
 
         public double Value => calculatorState != null ? calculatorState.Value : value;
     }

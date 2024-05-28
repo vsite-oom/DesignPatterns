@@ -61,7 +61,7 @@ namespace DesignPatterns.FactoryMethod
             }
         }
 
-        private IShootingTactics shootingTactics;
+        private IShootingTactics? shootingTactics;
 
         public CurrentShootingTactics CurrentShootingTactics { get; private set; }
     }

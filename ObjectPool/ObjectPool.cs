@@ -17,7 +17,7 @@
         // TODO: 1.6a Modify GetTaxi method so that it creates new taxi only if availableTaxis is empty, otherwise takes it from the queue.
         public Taxi GetTaxi()
         {
-            Taxi taxi = null;
+            Taxi? taxi = null;
             taxi = new Taxi();
             Console.WriteLine($"Taxi No. {taxi.CarNo} taken");
             return taxi;

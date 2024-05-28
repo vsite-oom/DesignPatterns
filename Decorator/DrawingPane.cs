@@ -2,7 +2,7 @@
 {
     class DrawingPane : System.Windows.Forms.PictureBox
     {
-        private Shape shape = null;
+        private Shape? shape;
 
         public void Assign(Shape shape)
         {
