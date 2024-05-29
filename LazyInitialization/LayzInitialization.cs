@@ -18,7 +18,7 @@
         {
             // TODO: 1.5 Implement method so that objects are created on demand.
 
-            return null;
+            return new Car(model);
         }
     }
 

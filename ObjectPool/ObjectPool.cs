@@ -18,8 +18,16 @@
         public Taxi GetTaxi()
         {
             Taxi? taxi = null;
-            taxi = new Taxi();
-            Console.WriteLine($"Taxi No. {taxi.CarNo} taken");
+            if(taxi == null)
+            {
+                taxi = new Taxi();
+                Console.WriteLine($"Taxi No. {taxi.CarNo} is not taken");
+            }
+            else
+            {
+                Console.WriteLine($"Taxi No. {taxi.CarNo} taken");
+            }
+
             return taxi;
         }
 
@@ -27,6 +35,7 @@
         public void ReleaseTaxi(Taxi taxi)
         {
             Console.WriteLine($"Taxi No. {taxi.CarNo} released");
+            availableTaxis.Enqueue( taxi );
         }
 
         private readonly Queue<Taxi> availableTaxis = new Queue<Taxi>();
