@@ -8,7 +8,6 @@
             this.outlinePen = outlinePen;
             this.fillBrush = fillBrush;
         }
-
         public abstract void Draw(Graphics g);
 
         protected readonly Rectangle bounds;
