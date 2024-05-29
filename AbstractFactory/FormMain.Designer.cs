@@ -40,9 +40,11 @@
             // 
             groupBoxStyle.Controls.Add(radioButtonFilledStyle);
             groupBoxStyle.Controls.Add(radioButtonDraftStyle);
-            groupBoxStyle.Location = new Point(12, 12);
+            groupBoxStyle.Location = new Point(14, 16);
+            groupBoxStyle.Margin = new Padding(3, 4, 3, 4);
             groupBoxStyle.Name = "groupBoxStyle";
-            groupBoxStyle.Size = new Size(123, 78);
+            groupBoxStyle.Padding = new Padding(3, 4, 3, 4);
+            groupBoxStyle.Size = new Size(141, 104);
             groupBoxStyle.TabIndex = 0;
             groupBoxStyle.TabStop = false;
             groupBoxStyle.Text = "Shapes style";
@@ -50,9 +52,10 @@
             // radioButtonFilledStyle
             // 
             radioButtonFilledStyle.AutoSize = true;
-            radioButtonFilledStyle.Location = new Point(6, 47);
+            radioButtonFilledStyle.Location = new Point(7, 63);
+            radioButtonFilledStyle.Margin = new Padding(3, 4, 3, 4);
             radioButtonFilledStyle.Name = "radioButtonFilledStyle";
-            radioButtonFilledStyle.Size = new Size(81, 19);
+            radioButtonFilledStyle.Size = new Size(102, 24);
             radioButtonFilledStyle.TabIndex = 1;
             radioButtonFilledStyle.TabStop = true;
             radioButtonFilledStyle.Text = "&Filled Style";
@@ -62,9 +65,10 @@
             // radioButtonDraftStyle
             // 
             radioButtonDraftStyle.AutoSize = true;
-            radioButtonDraftStyle.Location = new Point(6, 22);
+            radioButtonDraftStyle.Location = new Point(7, 29);
+            radioButtonDraftStyle.Margin = new Padding(3, 4, 3, 4);
             radioButtonDraftStyle.Name = "radioButtonDraftStyle";
-            radioButtonDraftStyle.Size = new Size(51, 19);
+            radioButtonDraftStyle.Size = new Size(64, 24);
             radioButtonDraftStyle.TabIndex = 0;
             radioButtonDraftStyle.TabStop = true;
             radioButtonDraftStyle.Text = "&Draft";
@@ -74,21 +78,24 @@
             // drawingPane
             // 
             drawingPane.BackColor = SystemColors.Window;
-            drawingPane.Location = new Point(141, 12);
+            drawingPane.Location = new Point(161, 16);
+            drawingPane.Margin = new Padding(3, 4, 3, 4);
             drawingPane.Name = "drawingPane";
-            drawingPane.Size = new Size(647, 426);
+            drawingPane.Size = new Size(739, 568);
             drawingPane.TabIndex = 1;
             drawingPane.TabStop = false;
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(drawingPane);
             Controls.Add(groupBoxStyle);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormMain";
             Text = "Abstract Factory";
+            Load += FormMain_Load;
             groupBoxStyle.ResumeLayout(false);
             groupBoxStyle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)drawingPane).EndInit();
