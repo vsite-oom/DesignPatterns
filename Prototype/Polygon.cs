@@ -23,7 +23,7 @@
         }
     }
 
-    class Polygon
+    class Polygon : ICloneable
     {
         public Polygon(params Point[] points)
         {
@@ -38,6 +38,16 @@
             }
         }
 
-        public readonly IEnumerable<Point> Points;
+		public Polygon Clone()
+		{
+            return new Polygon(Points.ToArray());
+		}
+
+		object ICloneable.Clone()
+		{
+			return Clone();
+		}
+
+		public readonly IEnumerable<Point> Points;
     }
 }
