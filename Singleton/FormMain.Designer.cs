@@ -33,14 +33,15 @@ namespace DesignPatterns.Singleton
             textBoxData = new TextBox();
             label1 = new Label();
             buttonClear = new Button();
+            buttonNew = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(18, 63);
-            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Location = new Point(21, 84);
+            button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
-            button1.Size = new Size(88, 27);
+            button1.Size = new Size(101, 36);
             button1.TabIndex = 0;
             button1.Text = "&Get data";
             button1.UseVisualStyleBackColor = true;
@@ -48,44 +49,55 @@ namespace DesignPatterns.Singleton
             // 
             // textBoxData
             // 
-            textBoxData.Location = new Point(59, 14);
-            textBoxData.Margin = new Padding(4, 3, 4, 3);
+            textBoxData.Location = new Point(67, 19);
+            textBoxData.Margin = new Padding(5, 4, 5, 4);
             textBoxData.Name = "textBoxData";
-            textBoxData.Size = new Size(152, 23);
+            textBoxData.Size = new Size(173, 27);
             textBoxData.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 17);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(16, 23);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(34, 15);
+            label1.Size = new Size(44, 20);
             label1.TabIndex = 2;
             label1.Text = "&Data:";
             // 
             // buttonClear
             // 
-            buttonClear.Location = new Point(125, 63);
-            buttonClear.Margin = new Padding(4, 3, 4, 3);
+            buttonClear.Location = new Point(143, 84);
+            buttonClear.Margin = new Padding(5, 4, 5, 4);
             buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(88, 27);
+            buttonClear.Size = new Size(101, 36);
             buttonClear.TabIndex = 3;
             buttonClear.Text = "&Clear data";
             buttonClear.UseVisualStyleBackColor = true;
             buttonClear.Click += buttonClear_Click;
             // 
+            // buttonNew
+            // 
+            buttonNew.Location = new Point(86, 173);
+            buttonNew.Name = "buttonNew";
+            buttonNew.Size = new Size(94, 29);
+            buttonNew.TabIndex = 4;
+            buttonNew.Text = "New...";
+            buttonNew.UseVisualStyleBackColor = true;
+            buttonNew.Click += buttonNew_Click;
+            // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(236, 105);
+            ClientSize = new Size(270, 348);
+            Controls.Add(buttonNew);
             Controls.Add(buttonClear);
             Controls.Add(label1);
             Controls.Add(textBoxData);
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(5, 4, 5, 4);
             MaximizeBox = false;
             Name = "FormMain";
             Text = "Main Form";
@@ -99,6 +111,7 @@ namespace DesignPatterns.Singleton
         private TextBox textBoxData;
         private Label label1;
         private Button buttonClear;
+        private Button buttonNew;
     }
 }
 

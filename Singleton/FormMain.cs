@@ -9,6 +9,7 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
+            UserSingleton.Instance.GetValue();
             // TODO: 1.4a Fetch and display value from UserSingleton class
         }
 
@@ -20,6 +21,12 @@
         }
 
         private void buttonNewForm_Click(object sender, EventArgs e)
+        {
+            var newForm = new FormMain();
+            newForm.ShowDialog(this);
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
         {
             var newForm = new FormMain();
             newForm.ShowDialog(this);
