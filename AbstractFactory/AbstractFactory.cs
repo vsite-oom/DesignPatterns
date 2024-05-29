@@ -53,7 +53,7 @@
             return PrepareRectangles(bounds);
         }
 
-        public IEnumerable<RectangleShape> CreateEllipses(IEnumerable<Rectangle> bounds)
+        public IEnumerable<EllipseShape> CreateEllipses(IEnumerable<Rectangle> bounds)
         {
             return PrepareEllipses(bounds);
         }
@@ -68,7 +68,7 @@
         }
             protected virtual IEnumerable<EllipseShape> CreateEllipses(IEnumerable<Rectangle> bounds, Pen pen, Brush brush)
         {
-            var rectangles = new List<RectangleShape>();
+            var rectangles = new List<EllipseShape>();
             foreach (var bound in bounds)
             {
                 rectangles.Add(new EllipseShape(bound, pen, brush));
