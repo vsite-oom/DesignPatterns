@@ -32,9 +32,9 @@
 
 
     // TODO: 1.1a Add EllipseShape derived from Shape class.
-    internal class ElipseShape : Shape
+    internal class EllipseShape : Shape
     {
-        public ElipseShape(Rectangle bounds, Pen outlinePen, Brush fillBrush) : base(bounds, outlinePen, fillBrush)
+        public EllipseShape(Rectangle bounds, Pen outlinePen, Brush fillBrush) : base(bounds, outlinePen, fillBrush)
         {
 
         }
