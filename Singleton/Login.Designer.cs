@@ -40,38 +40,38 @@ namespace DesignPatterns.Singleton
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(36, 36);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(41, 48);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(63, 15);
+            label1.Size = new Size(78, 20);
             label1.TabIndex = 0;
             label1.Text = "&Username:";
             // 
             // textBoxUsername
             // 
-            textBoxUsername.Location = new Point(111, 32);
-            textBoxUsername.Margin = new Padding(4, 3, 4, 3);
+            textBoxUsername.Location = new Point(127, 43);
+            textBoxUsername.Margin = new Padding(5, 4, 5, 4);
             textBoxUsername.Name = "textBoxUsername";
-            textBoxUsername.Size = new Size(116, 23);
+            textBoxUsername.Size = new Size(132, 27);
             textBoxUsername.TabIndex = 1;
             textBoxUsername.TextChanged += textBox_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(36, 75);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(41, 100);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(60, 15);
+            label2.Size = new Size(73, 20);
             label2.TabIndex = 2;
             label2.Text = "&Password:";
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Location = new Point(111, 72);
-            textBoxPassword.Margin = new Padding(4, 3, 4, 3);
+            textBoxPassword.Location = new Point(127, 96);
+            textBoxPassword.Margin = new Padding(5, 4, 5, 4);
             textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.Size = new Size(116, 23);
+            textBoxPassword.Size = new Size(132, 27);
             textBoxPassword.TabIndex = 3;
             textBoxPassword.UseSystemPasswordChar = true;
             textBoxPassword.TextChanged += textBox_TextChanged;
@@ -80,10 +80,10 @@ namespace DesignPatterns.Singleton
             // 
             buttonOK.DialogResult = DialogResult.OK;
             buttonOK.Enabled = false;
-            buttonOK.Location = new Point(40, 142);
-            buttonOK.Margin = new Padding(4, 3, 4, 3);
+            buttonOK.Location = new Point(46, 189);
+            buttonOK.Margin = new Padding(5, 4, 5, 4);
             buttonOK.Name = "buttonOK";
-            buttonOK.Size = new Size(88, 27);
+            buttonOK.Size = new Size(101, 36);
             buttonOK.TabIndex = 4;
             buttonOK.Text = "OK";
             buttonOK.UseVisualStyleBackColor = true;
@@ -91,10 +91,10 @@ namespace DesignPatterns.Singleton
             // buttonCancel
             // 
             buttonCancel.DialogResult = DialogResult.Cancel;
-            buttonCancel.Location = new Point(140, 142);
-            buttonCancel.Margin = new Padding(4, 3, 4, 3);
+            buttonCancel.Location = new Point(160, 189);
+            buttonCancel.Margin = new Padding(5, 4, 5, 4);
             buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(88, 27);
+            buttonCancel.Size = new Size(101, 36);
             buttonCancel.TabIndex = 5;
             buttonCancel.Text = "&Cancel";
             buttonCancel.UseVisualStyleBackColor = true;
@@ -102,10 +102,10 @@ namespace DesignPatterns.Singleton
             // LoginForm
             // 
             AcceptButton = buttonOK;
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = buttonCancel;
-            ClientSize = new Size(275, 187);
+            ClientSize = new Size(314, 249);
             Controls.Add(buttonCancel);
             Controls.Add(buttonOK);
             Controls.Add(textBoxPassword);
@@ -113,12 +113,13 @@ namespace DesignPatterns.Singleton
             Controls.Add(textBoxUsername);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(5, 4, 5, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Login";
+            Load += LoginForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

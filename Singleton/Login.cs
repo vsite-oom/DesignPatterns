@@ -21,5 +21,10 @@
         {
             buttonOK.Enabled = textBoxUsername.TextLength > 0 && textBoxPassword.TextLength > 0;
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
