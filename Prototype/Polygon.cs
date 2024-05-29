@@ -23,7 +23,7 @@
         }
     }
 
-    class Polygon
+    class Polygon : ICloneable
     {
         public Polygon(params Point[] points)
         {
@@ -36,6 +36,16 @@
             {
                 point.Move(deltaX, deltaY);
             }
+        }
+
+        public Polygon Clone()
+        {
+            return new Polygon(Points.ToArray());
+        }
+
+        object ICloneable.Clone()
+        {
+            return this.Clone();
         }
 
         public readonly IEnumerable<Point> Points;
