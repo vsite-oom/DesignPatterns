@@ -31,6 +31,29 @@
         }
     }
 
-    // TODO: 1.2 Create JsonPersonDataBuilder class and uncomment corresponding code in Main method
+    // DID_IT: 1.2 Create JsonPersonDataBuilder class and uncomment corresponding code in Main method
+
+    class JsonPersonDataBuilder : IPersonDataBuilder
+    {
+        public string BuildAddress(string street, string city)
+        {
+            return $", \"address:\" {{ \"street\": \"{street}\", \"city\": \"{city}\" }}";
+        }
+
+        public string BuildEpilogue()
+        {
+            return "}";
+        }
+
+        public string BuildName(string name)
+        {
+            return $"\"name:\" \"{name}\"";
+        }
+
+        public string BuildPrologue()
+        {
+            return "{";
+        }
+    }
 
 }
