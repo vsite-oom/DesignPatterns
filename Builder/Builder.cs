@@ -37,8 +37,8 @@ namespace DesignPatterns.Builder
             PersonDirector xml = new PersonDirector(new XmlPersonDataBuilder());
             Console.WriteLine($"XML Personal data:\n{xml.BuildPersonalData(person)}");
 
-            //PersonDirector json = new PersonDirector(new JsonPersonDataBuilder());
-            //Console.WriteLine($"Json Personal data:\n{json.BuildPersonalData(person)}");
+            PersonDirector json = new PersonDirector(new JsonPersonDataBuilder());
+            Console.WriteLine($"Json Personal data:\n{json.BuildPersonalData(person)}");
         }
     }
 }
