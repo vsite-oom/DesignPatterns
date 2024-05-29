@@ -12,25 +12,48 @@
     {
         public string BuildAddress(string street, string city)
         {
-            return $"<Address><StreetAddress>{street}</StreetAddress><City>{city}</City></Address>";
+            return $"\"address\": {{ \"streed\": \"{street}\", \"city\": \"{city}\" }}";
         }
 
         public string BuildEpilogue()
         {
-            return "</Person>";
+            return "}";
         }
 
         public string BuildName(string name)
         {
-            return $"<Name>{name}</Name>";
+            return $"\"name:\" \"{ name}\"";
         }
 
         public string BuildPrologue()
         {
-            return "<Person>";
+            return "{";
         }
     }
 
     // TODO: 1.2 Create JsonPersonDataBuilder class and uncomment corresponding code in Main method
+
+    class JsonPersonDataBuilder : IPersonDataBuilder
+    {
+        public string BuildAddress(string street, string city)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string BuildEpilogue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string BuildName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string BuildPrologue()
+        {
+            throw new NotImplementedException();
+        }
+    }
 
 }
