@@ -4,9 +4,9 @@
     {
         private List<Shape> shapes = new List<Shape>();
 
-        public void Assign(List<Shape> shapes)
+        public void Assign(IEnumerable<Shape> shapes)
         {
-            this.shapes = shapes;
+            this.shapes = shapes.ToList();
             Invalidate();
         }
         public void Add(IEnumerable<Shape> shapes)
