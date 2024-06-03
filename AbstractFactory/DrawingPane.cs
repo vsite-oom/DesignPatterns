@@ -11,7 +11,7 @@
         }
         public void Add(IEnumerable<Shape> shapes)
         {
-            this.shapes = this.AddRange(shapes);
+            this.shapes.AddRange(shapes);
             Invalidate();
         }
         protected override void OnPaint(PaintEventArgs pe)
