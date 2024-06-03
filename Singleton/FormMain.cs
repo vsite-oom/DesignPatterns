@@ -11,6 +11,7 @@
         {
             UserSingleton.Instance.GetValue();
             // TODO: 1.4a Fetch and display value from UserSingleton class
+            UserSingleton.Instance.GetValue();
         }
 
         // TODO: 1.4b Add a button to the main form that will open a new instance of the form.
