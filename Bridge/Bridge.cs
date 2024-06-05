@@ -4,7 +4,7 @@
     {
         public Writer(string filename)
         {
-            implementation = new XmlPersonWriter(filename);
+            implementation = new TextWriter(filename);
         }
 
         private readonly IWriterImplementation implementation;
