@@ -4,12 +4,12 @@
     {
         public Writer(string filename)
         {
-            implementation = new XmlPersonWriter(filename);
+            implementation = new TextWritter(filename);
         }
 
         private readonly IWriterImplementation implementation;
 
-        public void WriteName(string name)
+        public void WriteName(string name) 
         {
             implementation.WriteName(name);
         }
