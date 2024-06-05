@@ -18,7 +18,14 @@
         public Taxi GetTaxi()
         {
             Taxi? taxi = null;
-            taxi = new Taxi();
+            if (availableTaxis.Count()  == 0)
+            {
+                taxi = new Taxi();
+            }
+            else
+            {
+                taxi = availableTaxis.Dequeue();
+            }
             Console.WriteLine($"Taxi No. {taxi.CarNo} taken");
             return taxi;
         }
@@ -26,6 +33,7 @@
         // TODO: 1.6b Modify ReleaseTaxi method so that released taxi is added to availableTaxis.
         public void ReleaseTaxi(Taxi taxi)
         {
+            availableTaxis.Enqueue(taxi);
             Console.WriteLine($"Taxi No. {taxi.CarNo} released");
         }
 
