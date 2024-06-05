@@ -12,8 +12,15 @@ namespace DesignPatterns.Adapter
         // TODO: 2.0 Implement GetNames using XmlDocument.GetElementsByTagName method.
         public IEnumerable<string> GetNames()
         {
-            List<string> result = new List<string>();
-            return result;
+            return doc.GetElementsByTagName("name").Cast<XmlElement>().Select(x => x.InnerText);
+            
+            //List<string> result = new List<string>();
+            //var nodeList = doc.GetElementsByTagName("name");
+            //foreach (XmlElement node in nodeList)
+            //{
+            //    result.Add(node.InnerText);
+            //}
+            //return result;
         }
         // https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmldocument
         readonly XmlDocument doc = new XmlDocument();
