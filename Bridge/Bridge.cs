@@ -1,10 +1,12 @@
-﻿namespace DesignPatterns.Bridge
+﻿using System;
+
+namespace DesignPatterns.Bridge
 {
     class Writer : IDisposable
     {
         public Writer(string filename)
         {
-            implementation = new XmlPersonWriter(filename);
+            implementation = new TextWriter(filename);
         }
 
         private readonly IWriterImplementation implementation;
@@ -44,5 +46,6 @@
                 w.WriteAddress("Vlaška 8");
             }
         }
+
     }
 }

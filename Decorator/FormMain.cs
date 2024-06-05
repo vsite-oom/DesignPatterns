@@ -24,8 +24,17 @@
             {
                 dec = new ShapeCaption(dec);
             }
+            if (RectOutline.Checked)
+            {
+                dec = new RectangleOutline(dec);
+            }
+            if (RectFill.Checked)
+            {
+                dec = new RectangleFill(dec);
+            }
             drawingPane.Assign(dec);
             drawingPane.Invalidate();
+
         }
     }
 }

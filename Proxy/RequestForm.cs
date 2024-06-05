@@ -15,7 +15,8 @@ namespace DesignPatterns.Proxy
         private void buttonGet_Click(object sender, EventArgs e)
         {
             textBoxName.Text = personProxy.Name;
-            // TODO: 2.4 Add code to fill family name and implement fetching in PersonProxy.
+            // 2.4 Add code to fill family name and implement fetching in PersonProxy.
+            textBoxFamilyName.Text = personProxy.FamilyName;
         }
     }
 }
