@@ -25,6 +25,16 @@
             }
         }
 
-        public string FamilyName => throw new NotImplementedException();
+        public string FamilyName
+        {
+            get
+            {
+                if (MessageBox.Show("Are you adult?", "Age verification", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return "No Family name!";
+                }
+                return realPerson.FamilyName;
+            }
+        }
     }
 }
