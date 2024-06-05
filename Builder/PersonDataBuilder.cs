@@ -10,6 +10,7 @@ namespace DesignPatterns.Builder
         string BuildEpilogue();
     }
 
+
     class XmlPersonDataBuilder : IPersonDataBuilder
     {
         public string BuildAddress(string street, string city)
@@ -33,8 +34,8 @@ namespace DesignPatterns.Builder
         }
     }
 
-    // TODO: 1.2 Create JsonPersonDataBuilder class and uncomment corresponding code in Main method
 
+    // TODO: 1.2 Create JsonPersonDataBuilder class and uncomment corresponding code in Main method
     class JsonPersonDataBuilder : IPersonDataBuilder
     {
         public string BuildAddress(string street, string city)

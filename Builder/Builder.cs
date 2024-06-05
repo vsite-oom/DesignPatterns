@@ -9,6 +9,7 @@ namespace DesignPatterns.Builder
         public string City;
     }
 
+
     class PersonDirector
     {
         public PersonDirector(IPersonDataBuilder builder)
@@ -27,6 +28,7 @@ namespace DesignPatterns.Builder
             return result.ToString();
         }
     }
+
 
     static internal class Program
     {

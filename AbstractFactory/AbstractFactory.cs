@@ -18,12 +18,10 @@ namespace DesignPatterns.AbstractFactory
         protected readonly Brush fillBrush;
     }
 
+
     internal class RectangleShape : Shape
     {
-        public RectangleShape(Rectangle bounds, Pen outlinePen, Brush fillBrush) : base(bounds, outlinePen, fillBrush)
-        {
-
-        }
+        public RectangleShape(Rectangle bounds, Pen outlinePen, Brush fillBrush) : base(bounds, outlinePen, fillBrush) {}
         public override void Draw(Graphics g)
         {
             g.FillRectangle(fillBrush, bounds);
@@ -31,13 +29,11 @@ namespace DesignPatterns.AbstractFactory
         }
     }
 
+
     // TODO: 1.1a Add EllipseShape derived from Shape class.
     internal class EllipseShape : Shape
     {
-        public EllipseShape(Rectangle bounds, Pen outlinePen, Brush fillBrush) : base(bounds, outlinePen, fillBrush)
-        {
-
-        }
+        public EllipseShape(Rectangle bounds, Pen outlinePen, Brush fillBrush) : base(bounds, outlinePen, fillBrush) {}
         public override void Draw(Graphics g)
         {
             g.FillEllipse(fillBrush, bounds);
@@ -45,9 +41,8 @@ namespace DesignPatterns.AbstractFactory
         }
     }
 
+
     // TODO: 1.1b Extend ShapesFactory classes with CreateEllipses methods.
-
-
     internal abstract class AbstractShapesFactory
     {
         public IEnumerable<RectangleShape> CreateRectangles(IEnumerable<Rectangle> bounds)
@@ -57,7 +52,7 @@ namespace DesignPatterns.AbstractFactory
 
         public IEnumerable<EllipseShape> CreateEllipses(IEnumerable<Rectangle> bounds)
         {
-        return PrepareEllipses(bounds);
+            return PrepareEllipses(bounds);
         }
 
         protected virtual IEnumerable<RectangleShape> CreateRectangles(IEnumerable<Rectangle> bounds, Pen pen, Brush brush)
@@ -69,6 +64,7 @@ namespace DesignPatterns.AbstractFactory
             }
             return rectangles;
         }
+
         protected virtual IEnumerable<EllipseShape> CreateEllipses(IEnumerable<Rectangle> bounds, Pen pen, Brush brush)
         {
             var ellipses = new List<EllipseShape>();
@@ -79,10 +75,11 @@ namespace DesignPatterns.AbstractFactory
             return ellipses;
         }
 
-        protected abstract IEnumerable<RectangleShape> PrepareRectangles(IEnumerable<Rectangle> bounds);
 
+        protected abstract IEnumerable<RectangleShape> PrepareRectangles(IEnumerable<Rectangle> bounds);
         protected abstract IEnumerable<EllipseShape> PrepareEllipses(IEnumerable<Rectangle> bounds);
 }
+
 
     internal class DraftShapesFactory : AbstractShapesFactory
     {
@@ -100,6 +97,7 @@ namespace DesignPatterns.AbstractFactory
             return CreateRectangles(bounds, pen, Brushes.Transparent);
         }
     }
+
 
     internal class FilledShapesFactory : AbstractShapesFactory
     {

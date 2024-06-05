@@ -7,7 +7,7 @@
             switch (shootingTactics)
             {
                 case CurrentShootingTactics.Random:
-                    return new RandomShooting();
+                    return new RandomShooting();  // In practice we would pass some arguments to construcor.
                 case CurrentShootingTactics.Zone:
                     return new ZoneShooting();
                 case CurrentShootingTactics.Line:
