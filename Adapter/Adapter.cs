@@ -9,10 +9,18 @@ namespace DesignPatterns.Adapter
             doc.Load(filename);
         }
 
-        // TODO: 2.0 Implement GetNames using XmlDocument.GetElementsByTagName method.
+        // 2.0 Implement GetNames using XmlDocument.GetElementsByTagName method.
         public IEnumerable<string> GetNames()
         {
-            List<string> result = new List<string>();
+            var result =doc.GetElementsByTagName("name").Cast<XmlElement>().Select(el=>el.InnerText);
+
+            //List<string> result = new List<string>();
+            //var nodeList=doc.GetElementsByTagName("name");
+            //foreach(XmlElement node in nodeList)
+            //{
+            //    result.Add(node.InnerText);
+            //}
+
             return result;
         }
         // https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmldocument
