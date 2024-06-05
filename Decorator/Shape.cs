@@ -74,6 +74,30 @@
     }
 
     // TODO: 2.3a Create RectangleOutline and RectangleFill decorators.
+    class RectangleOutline : ShapeDecorator
+    {
+        public RectangleOutline(Shape shape) : base(shape)
+        {
+        }
+
+        public override void Draw(Graphics g)
+        {
+            base.Draw(g);
+            g.DrawRectangle(Pens.Blue, shape.Bounds);
+        }
+    }
+
+    class RectangleFill : ShapeDecorator
+    {
+        public RectangleFill(Shape shape) : base(shape)
+        {
+        }
+        public override void Draw(Graphics g)
+        {
+            base.Draw(g);
+            g.FillRectangle(Brushes.Green, shape.Bounds);
+        }
+    }
 
     // TODO: 2.3b Add two new checkboxes to the main form that will activate these decorators.
 }
