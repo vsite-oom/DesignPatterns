@@ -1,4 +1,6 @@
-﻿using System.Xml;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml;
 
 namespace DesignPatterns.Adapter
 {
@@ -9,12 +11,18 @@ namespace DesignPatterns.Adapter
             doc.Load(filename);
         }
 
-        // TODO: 2.0 Implement GetNames using XmlDocument.GetElementsByTagName method.
+        // Implement GetNames using XmlDocument.GetElementsByTagName method.
         public IEnumerable<string> GetNames()
         {
             List<string> result = new List<string>();
+            XmlNodeList nameNodes = doc.GetElementsByTagName("name");
+            foreach (XmlNode nameNode in nameNodes)
+            {
+                result.Add(nameNode.InnerText);
+            }
             return result;
         }
+
         // https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmldocument
         readonly XmlDocument doc = new XmlDocument();
     }
