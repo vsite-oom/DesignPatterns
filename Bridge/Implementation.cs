@@ -1,4 +1,7 @@
-﻿namespace DesignPatterns.Bridge
+﻿using System;
+using System.IO;
+
+namespace DesignPatterns.Bridge
 {
     interface IWriterImplementation
     {
@@ -32,6 +35,28 @@
             streamWriter.Write($"<address>{address}</address>");
         }
     }
+    class TextWriter : IWriterImplementation, IDisposable
+    {
+        private StreamWriter streamWriter;
 
-    // TODO: 2.1 Create a simple text writer that implements IWriterImplementation interface and replace XmlPersonWriter in Writer class with the new class.
+        public TextWriter(string filename)
+        {
+            streamWriter = new StreamWriter(filename);
+        }
+
+        public void WriteName(string name)
+        {
+            streamWriter.WriteLine($"Name: {name}");
+        }
+
+        public void WriteAddress(string address)
+        {
+            streamWriter.WriteLine($"Address: {address}");
+        }
+
+        public void Dispose()
+        {
+            streamWriter.Dispose();
+        }
+    }
 }
