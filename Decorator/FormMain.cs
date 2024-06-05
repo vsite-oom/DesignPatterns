@@ -12,6 +12,18 @@
         private void buttonDraw_Click(object sender, EventArgs e)
         {
             ShapeDecorator dec = new ShapeDecorator(shape);
+            if (checkBoxRectangleOutline.Checked)
+            {
+                dec = new RectangleOutline(dec);
+            }
+
+
+            if(checkBoxRectangleFill.Checked)
+            {
+                dec = new RectangleFill(dec);
+            }
+
+
             if (checkBoxEllipseFill.Checked)
             {
                 dec = new EllipseFill(dec);
@@ -26,6 +38,11 @@
             }
             drawingPane.Assign(dec);
             drawingPane.Invalidate();
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
