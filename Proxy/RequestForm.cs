@@ -16,6 +16,12 @@ namespace DesignPatterns.Proxy
         {
             textBoxName.Text = personProxy.Name;
             // TODO: 2.4 Add code to fill family name and implement fetching in PersonProxy.
+            textBoxFamilyName.Text = personProxy.FamilyName;
+        }
+
+        private void RequestForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

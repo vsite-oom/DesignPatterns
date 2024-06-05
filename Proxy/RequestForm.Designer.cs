@@ -38,42 +38,45 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 15);
+            label1.Location = new Point(14, 20);
             label1.Name = "label1";
-            label1.Size = new Size(42, 15);
+            label1.Size = new Size(52, 20);
             label1.TabIndex = 0;
             label1.Text = "&Name:";
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(94, 12);
+            textBoxName.Location = new Point(107, 16);
+            textBoxName.Margin = new Padding(3, 4, 3, 4);
             textBoxName.Name = "textBoxName";
             textBoxName.ReadOnly = true;
-            textBoxName.Size = new Size(201, 23);
+            textBoxName.Size = new Size(229, 27);
             textBoxName.TabIndex = 1;
             // 
             // textBoxFamilyName
             // 
-            textBoxFamilyName.Location = new Point(94, 41);
+            textBoxFamilyName.Location = new Point(107, 55);
+            textBoxFamilyName.Margin = new Padding(3, 4, 3, 4);
             textBoxFamilyName.Name = "textBoxFamilyName";
             textBoxFamilyName.ReadOnly = true;
-            textBoxFamilyName.Size = new Size(201, 23);
+            textBoxFamilyName.Size = new Size(229, 27);
             textBoxFamilyName.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 44);
+            label2.Location = new Point(14, 59);
             label2.Name = "label2";
-            label2.Size = new Size(78, 15);
+            label2.Size = new Size(95, 20);
             label2.TabIndex = 2;
             label2.Text = "&Family name:";
             // 
             // buttonGet
             // 
-            buttonGet.Location = new Point(220, 89);
+            buttonGet.Location = new Point(251, 119);
+            buttonGet.Margin = new Padding(3, 4, 3, 4);
             buttonGet.Name = "buttonGet";
-            buttonGet.Size = new Size(75, 23);
+            buttonGet.Size = new Size(86, 31);
             buttonGet.TabIndex = 6;
             buttonGet.Text = "&Get";
             buttonGet.UseVisualStyleBackColor = true;
@@ -81,19 +84,21 @@
             // 
             // RequestForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(307, 124);
+            ClientSize = new Size(351, 165);
             Controls.Add(buttonGet);
             Controls.Add(textBoxFamilyName);
             Controls.Add(label2);
             Controls.Add(textBoxName);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "RequestForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Person Proxy";
+            Load += RequestForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
