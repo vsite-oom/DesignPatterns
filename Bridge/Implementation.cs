@@ -1,4 +1,6 @@
-﻿namespace DesignPatterns.Bridge
+﻿using System.Net;
+
+namespace DesignPatterns.Bridge
 {
     interface IWriterImplementation
     {
@@ -34,4 +36,28 @@
     }
 
     // TODO: 2.1 Create a simple text writer that implements IWriterImplementation interface and replace XmlPersonWriter in Writer class with the new class.
+
+    class TextWriter : IWriterImplementation, IDisposable
+    {
+        private StreamWriter streamWriter;
+
+        public TextWriter(string filename)
+        {
+            streamWriter = new StreamWriter(filename);
+        }
+        public void Dispose()
+        {
+            streamWriter.Dispose();
+        }
+
+        public void WriteAddress(string address)
+        {
+            streamWriter.WriteLine($"Address: {address}");
+        }
+
+        public void WriteName(string name)
+        {
+            streamWriter.WriteLine($"Name: {name}");
+        }
+    }
 }
