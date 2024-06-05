@@ -27,5 +27,10 @@
             drawingPane.Assign(dec);
             drawingPane.Invalidate();
         }
+
+        private void checkBoxCaption_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
