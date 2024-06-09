@@ -17,8 +17,11 @@
         public Car GetCar(string model)
         {
             // TODO: 1.5 Implement method so that objects are created on demand.
-
-            return null;
+            if (!availableCars.ContainsKey(model))
+            {
+                availableCars.Add(model, new Car(model));
+            }
+            return availableCars[model];
         }
     }
 
