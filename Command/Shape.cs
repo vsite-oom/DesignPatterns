@@ -3,6 +3,7 @@
     interface IShape
     {
         public void Move(int dx, int dy);
+        public void Resize(double xFactor, double yFactor);
     }
 
     class Circle : IShape
@@ -15,6 +16,11 @@
         public void Move(int dx, int dy)
         {
             Console.WriteLine($"Move circle {instance} by: {dx}, {dy}");
+        }
+
+        public void Resize(double xFactor, double yFactor)
+        {
+            Console.WriteLine($"Resize circle {instance} by: {xFactor}, {yFactor}");
         }
 
         private readonly int instance;
@@ -32,6 +38,11 @@
         public void Move(int dx, int dy)
         {
             Console.WriteLine($"Move rectangle {instance} by: {dx}, {dy}");
+        }
+
+        public void Resize(double xFactor, double yFactor)
+        {
+            Console.WriteLine($"Resize rectangle {instance} by: {xFactor}, {yFactor}");
         }
 
         private readonly int instance;
@@ -58,6 +69,14 @@
             foreach (var shape in selection)
             {
                 shape.Move(dx, dy);
+            }
+        }
+
+        public void Resize(double xFactor, double yFactor)
+        {
+            foreach (var shape in selection)
+            {
+                shape.Resize(xFactor, yFactor);
             }
         }
     }

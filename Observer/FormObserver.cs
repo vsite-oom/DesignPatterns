@@ -22,7 +22,7 @@
             Subscribe(sender, textBoxSubscriber3);
         }
 
-        // TODO: 3.1 Add code that will unsubscribe observer when checkbox is unchecked
+        // 3.1 Add code that will unsubscribe observer when checkbox is unchecked
         private void Subscribe(object sender, SubscriberTextBox subscriber)
         {
             CheckBox? checkBox = sender as CheckBox;
@@ -31,6 +31,10 @@
                 if (checkBox.Checked)
                 {
                     textBoxPublisher.KeyPress += subscriber.Publisher_KeyPress!;
+                }
+                else
+                {
+                    textBoxPublisher.KeyPress -= subscriber.Publisher_KeyPress!;
                 }
             }
         }
