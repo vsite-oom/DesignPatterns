@@ -6,9 +6,53 @@
         void Undo();
     }
 
-    // TODO: 3.1a Create MoveShapeCommand class that implements ICommand.
+	// TODO: 3.1a Create MoveShapeCommand class that implements ICommand.
+	class MoveShapeCommand : ICommand
+	{
+        public MoveShapeCommand(IShape shape, int dx, int dy)
+        {
+            this.shape = shape;
+            this.dx = dx;
+            this.dy = dy;
+        }
+        private readonly IShape shape;
+        private readonly int dx;
+        private readonly int dy;
+		public void Execute()
+		{
+			shape.Move(dx, dy);
+		}
 
-    class Program
+		public void Undo()
+		{
+			shape.Move(-dx, -dy);
+		}
+	}
+
+	class ResizeShapeCommand : ICommand
+	{
+        public ResizeShapeCommand(IShape shape, double xFactor,  double yFactor)
+        {
+            this.shape=shape;
+            this.xFactor=xFactor;
+            this.yFactor=yFactor;
+        }
+
+		private readonly IShape shape;
+		private readonly double xFactor;
+        private readonly double yFactor;
+		public void Execute()
+		{
+			shape.Resize(xFactor, yFactor);
+		}
+
+		public void Undo()
+		{
+			shape.Resize(1/xFactor, 1/yFactor);
+		}
+	}
+
+	class Program
     {
         static void Main(string[] args)
         {
@@ -23,13 +67,21 @@
 
             // TODO: 3.1b Uncomment statements below and run the program.
 
-            //MoveShapeCommand cmd = new MoveShapeCommand(sel, 3, 7);
-            //Console.WriteLine("Execute move shape command");
-            //cmd.Execute();
+            MoveShapeCommand cmd = new MoveShapeCommand(sel, 3, 7);
+            Console.WriteLine("Execute move shape command");
+            cmd.Execute();
 
-            //Console.WriteLine("Undo move shape command");
-            //cmd.Undo();
+            Console.WriteLine("Undo move shape command");
+            cmd.Undo();
 
-        }
+			Console.WriteLine("\nExecute resize shape command: ");
+			var resizeCommand = new ResizeShapeCommand(sel, 2, 4);
+            resizeCommand.Execute();
+
+            Console.WriteLine("\nUndu resize shape command: ");
+			resizeCommand.Undo();
+
+
+		}
     }
 }
