@@ -32,6 +32,10 @@
                 {
                     textBoxPublisher.KeyPress += subscriber.Publisher_KeyPress!;
                 }
+                else
+                {
+                    textBoxPublisher.KeyPress -= subscriber.Publisher_KeyPress!;
+                }
             }
         }
     }
