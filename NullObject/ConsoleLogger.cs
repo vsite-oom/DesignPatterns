@@ -7,4 +7,9 @@
             Console.WriteLine(message);
         }
     }
+
+    internal class NullLogger
+    {
+        public void Log(string message) { }
+    }
 }
