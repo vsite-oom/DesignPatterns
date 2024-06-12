@@ -85,11 +85,34 @@
 
         public void Visit(Rectangle rectangle)
         {
-            writer.WriteLine($"Rectangle: x0={rectangle.xLeft}, y0={rectangle.yLeft}, w={rectangle.height}, h={rectangle.height}");
+            writer.WriteLine($"Rectangle: x0={rectangle.xLeft}, y0={rectangle.yLeft}, w={rectangle.width}, h={rectangle.height}");
         }
     }
 
     // TODO: 3.5 Add and implement MoveShapeVisitor class and test it.
+    class MoveShapeVisitor : IShapeVisitor
+    {
+        public MoveShapeVisitor(int dx, int dy)
+        {
+            this.dx = dx;
+            this.dy = dy;
+        }
+
+        private readonly int dx;
+        private readonly int dy;
+
+        public void Visit(Circle circle)
+        {
+            circle.xCenter += dx;
+            circle.yCenter += dy;
+        }
+
+        public void Visit(Rectangle rectangle)
+        {
+            rectangle.xLeft += dx;
+            rectangle.yLeft += dy;
+        }
+    }
 
     static internal class Program
     {
@@ -105,6 +128,14 @@
 
             Console.WriteLine(sw.ToString());
 
+            Console.WriteLine();
+
+            var moveVisitor = new MoveShapeVisitor(5, 10);
+            drawing.AcceptVisitor(moveVisitor);
+
+            drawing.AcceptVisitor(visitor);
+
+            Console.WriteLine(sw.ToString());
         }
     }
 }
