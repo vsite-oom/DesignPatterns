@@ -90,6 +90,28 @@
     }
 
     // TODO: 3.5 Add and implement MoveShapeVisitor class and test it.
+    class MoveShapeVisitor : IShapeVisitor
+    {
+        private readonly int dx;
+        private readonly int dy;
+        public MoveShapeVisitor(int dx, int dy)
+        {
+            this.dx = dx;
+            this.dy = dy;
+        }
+
+        public void Visit(Circle circle)
+        {
+            circle.xCenter += dx;
+            circle.yCenter += dy;
+        }
+
+        public void Visit(Rectangle rectangle)
+        {
+            rectangle.xLeft += dx;
+            rectangle.yLeft += dy;
+        }
+    }
 
     static internal class Program
     {
@@ -101,6 +123,13 @@
 
             StringWriter sw = new StringWriter();
             SaveShapeVisitor visitor = new SaveShapeVisitor(sw);
+            drawing.AcceptVisitor(visitor);
+
+            Console.WriteLine(sw.ToString());
+
+            var moveVisitor = new MoveShapeVisitor(5, 10);
+            drawing.AcceptVisitor(moveVisitor);
+
             drawing.AcceptVisitor(visitor);
 
             Console.WriteLine(sw.ToString());
