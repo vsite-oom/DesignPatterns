@@ -49,8 +49,11 @@
             result = minusTriplet.Interpret(context);
             Console.WriteLine($"-(a - b + c) = {result}, for {context}");
 
-            // TODO: 3.3a Implement and test Multiply and Divide classes.
+            // 3.3a Implement and test Multiply and Divide classes.
 
+            var multiplySausage = new Multiply(minusTriplet, minusTriplet);
+            result = multiplySausage.Interpret(context);
+            Console.WriteLine($"-(a - b + c) * -(a - b + c) = {result}, for {context}");
             // TODO: 3.3b Add Power class, implement and test it.
         }
     }

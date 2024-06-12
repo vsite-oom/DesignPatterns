@@ -2,14 +2,18 @@
 {
     public class Multiply : IExpression
     {
-        public Multiply(IExpression expression)
+        public Multiply(IExpression lhs, IExpression rhs)
         {
-            throw new NotImplementedException();
+            this.lhs = lhs;
+            this.rhs = rhs;
         }
+
+        private readonly IExpression lhs;
+        private readonly IExpression rhs;
 
         public double Interpret(Context context)
         {
-            throw new NotImplementedException();
+            return lhs.Interpret(context) * rhs.Interpret(context);
         }
     }
 }
