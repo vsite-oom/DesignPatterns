@@ -43,8 +43,8 @@
                 for (int c = 0; c < Columns; ++c)
                 {
                     // instead of this:
-                    // if (squares[r, c] != null && squares[r, c].SquareState == SquareState.Initial
-                    if (IsSquareAvailable(r, c))
+                    if (squares[r, c] != null && squares[r, c].SquareState == SquareState.Initial)
+                    //if (IsSquareAvailable(r, c))
                         gathered.Enqueue(squares[r, c]!);
                     else
                         gathered.Clear();

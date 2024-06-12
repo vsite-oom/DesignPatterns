@@ -1,110 +1,142 @@
 ﻿namespace DesignPatterns.Visitor
 {
-    abstract class Shape
-    {
-        public abstract void Accept(IShapeVisitor visitor);
-    }
+	abstract class Shape
+	{
+		public abstract void Accept(IShapeVisitor visitor);
+	}
 
-    class Circle : Shape
-    {
-        public Circle(double xCenter, double yCenter, double radius)
-        {
-            this.xCenter = xCenter;
-            this.yCenter = yCenter;
-            this.radius = radius;
-        }
+	class Circle : Shape
+	{
+		public Circle(double xCenter, double yCenter, double radius)
+		{
+			this.xCenter = xCenter;
+			this.yCenter = yCenter;
+			this.radius = radius;
+		}
 
-        public double xCenter;
-        public double yCenter;
-        public double radius;
+		public double xCenter;
+		public double yCenter;
+		public double radius;
 
-        public override void Accept(IShapeVisitor visitor)
-        {
-            visitor.Visit(this);
-        }
-    }
+		public override void Accept(IShapeVisitor visitor)
+		{
+			visitor.Visit(this);
+		}
+	}
 
-    class Rectangle : Shape
-    {
-        public Rectangle(double xLeft, double yLeft, double width, double height)
-        {
-            this.xLeft = xLeft;
-            this.yLeft = yLeft;
-            this.width = width;
-            this.height = height;
-        }
+	class Rectangle : Shape
+	{
+		public Rectangle(double xLeft, double yLeft, double width, double height)
+		{
+			this.xLeft = xLeft;
+			this.yLeft = yLeft;
+			this.width = width;
+			this.height = height;
+		}
 
-        public double xLeft;
-        public double yLeft;
-        public double width;
-        public double height;
+		public double xLeft;
+		public double yLeft;
+		public double width;
+		public double height;
 
-        public override void Accept(IShapeVisitor visitor)
-        {
-            visitor.Visit(this);
-        }
-    }
+		public override void Accept(IShapeVisitor visitor)
+		{
+			visitor.Visit(this);
+		}
+	}
 
-    class Drawing
-    {
-        public void AddShape(Shape shape)
-        {
-            shapes.Add(shape);
-        }
+	class Drawing
+	{
+		public void AddShape(Shape shape)
+		{
+			shapes.Add(shape);
+		}
 
-        public void AcceptVisitor(IShapeVisitor visitor)
-        {
-            foreach (Shape shape in shapes)
-            { 
-                shape.Accept(visitor);
-            }
-        }
+		public void AcceptVisitor(IShapeVisitor visitor)
+		{
+			foreach (Shape shape in shapes)
+			{
+				shape.Accept(visitor);
+			}
+		}
 
-        private readonly List<Shape> shapes = new List<Shape>();
-    }
+		private readonly List<Shape> shapes = new List<Shape>();
+	}
 
-    interface IShapeVisitor
-    {
-        void Visit(Circle circle);
-        void Visit(Rectangle rectangle);
-    }
+	interface IShapeVisitor
+	{
+		void Visit(Circle circle);
+		void Visit(Rectangle rectangle);
+	}
 
-    class SaveShapeVisitor : IShapeVisitor
-    {
-        public SaveShapeVisitor(TextWriter writer)
-        {
-            this.writer = writer;
-        }
+	class SaveShapeVisitor : IShapeVisitor
+	{
+		public SaveShapeVisitor(TextWriter writer)
+		{
+			this.writer = writer;
+		}
 
-        private readonly TextWriter writer;
+		private readonly TextWriter writer;
 
-        public void Visit(Circle circle)
-        {
-            writer.WriteLine($"Circle: x0={circle.xCenter}, y0={circle.yCenter}, r={circle.radius}");
-        }
+		public void Visit(Circle circle)
+		{
+			writer.WriteLine($"Circle: x0={circle.xCenter}, y0={circle.yCenter}, r={circle.radius}");
+		}
 
-        public void Visit(Rectangle rectangle)
-        {
-            writer.WriteLine($"Rectangle: x0={rectangle.xLeft}, y0={rectangle.yLeft}, w={rectangle.height}, h={rectangle.height}");
-        }
-    }
+		public void Visit(Rectangle rectangle)
+		{
+			writer.WriteLine($"Rectangle: x0={rectangle.xLeft}, y0={rectangle.yLeft}, w={rectangle.height}, h={rectangle.height}");
+		}
+	}
 
-    // TODO: 3.5 Add and implement MoveShapeVisitor class and test it.
+	// TODO: 3.5 Add and implement MoveShapeVisitor class and test it.
 
-    static internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Drawing drawing = new Drawing();
-            drawing.AddShape(new Circle(5, 10, 5));
-            drawing.AddShape(new Rectangle(20, 30, 5, 8));
+	class MoveShapeVisitor : IShapeVisitor
+	{
+		public MoveShapeVisitor(int dx, int dy)
+		{
+			this.dx = dx;
+			this.dy = dy;
+		}
+		private readonly int dx;
+		private readonly int dy;
 
-            StringWriter sw = new StringWriter();
-            SaveShapeVisitor visitor = new SaveShapeVisitor(sw);
-            drawing.AcceptVisitor(visitor);
+		public void Visit(Circle circle)
+		{
+			circle.xCenter += dx;
+			circle.yCenter += dy;
+		}
 
-            Console.WriteLine(sw.ToString());
+		public void Visit(Rectangle rectangle)
+		{
+			rectangle.xLeft += dx;
+			rectangle.yLeft += dy;
+		}
+	}
 
-        }
-    }
+
+	static internal class Program
+	{
+		static void Main(string[] args)
+		{
+			Drawing drawing = new Drawing();
+			drawing.AddShape(new Circle(5, 10, 5));
+			drawing.AddShape(new Rectangle(20, 30, 5, 8));
+
+			StringWriter sw = new StringWriter();
+			SaveShapeVisitor visitor = new SaveShapeVisitor(sw);
+			drawing.AcceptVisitor(visitor);
+
+			Console.WriteLine(sw.ToString());
+
+            Console.WriteLine();
+
+            var moveVisitor=new MoveShapeVisitor(5,10);
+			drawing.AcceptVisitor(moveVisitor);
+
+			drawing.AcceptVisitor(visitor);
+			Console.WriteLine(sw.ToString());
+
+		}
+	}
 }
