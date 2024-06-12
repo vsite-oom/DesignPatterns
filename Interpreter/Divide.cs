@@ -2,16 +2,18 @@
 {
     public class Divide : IExpression
     {
-        private IExpression expression;
-
-        public Divide(IExpression expression)
-        {
-            this.expression = expression;
+        public Divide(IExpression lhs, IExpression rhs)
+		{
+            this.lhs = lhs;
+            this.rhs = rhs;
         }
 
-        public double Interpret(Context context)
+		private readonly IExpression lhs;
+		private readonly IExpression rhs;
+
+		public double Interpret(Context context)
         {
-            throw new NotImplementedException();
+            return lhs.Interpret(context)/rhs.Interpret(context);
         }
     }
 }
