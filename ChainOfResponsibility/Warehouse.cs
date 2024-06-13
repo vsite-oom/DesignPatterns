@@ -10,7 +10,7 @@
                 productsInWarehouse.RemoveAt(0);
                 return product;
             }
-            return null;
+            return nextHandler!.GetProduct();
         }
 
         private readonly List<Product> productsInWarehouse = new List<Product>();
