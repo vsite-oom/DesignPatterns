@@ -7,9 +7,9 @@
         {
             var store = new Store();
             var warehouse = new Warehouse();
-
+            var manufacturer = new Manufacturer();
             store.SetNextHandler(warehouse);
-
+            warehouse.SetNextHandler(manufacturer);
 
             var product = store.GetProduct();
             if (product == null)
