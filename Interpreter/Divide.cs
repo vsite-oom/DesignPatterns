@@ -5,7 +5,7 @@
         private IExpression lhs;
         private IExpression rhs;
 
-        public Divide(IExpression expression)
+        public Divide(IExpression lhs, IExpression rhs)
         {
             this.lhs=lhs;
             this.rhs=rhs;

@@ -54,6 +54,10 @@
             result = mustplySausage.Interpret(context);
             Console.WriteLine($"(-(a - b + c)) = {result}, for {context}");
             // TODO: 3.3b Add Power class, implement and test it.
+            var mustpowSausage = new Power(minusTriplet, minusTriplet);
+            result = mustpowSausage.Interpret(context);
+            Console.WriteLine($"(-(a - b + c))^2 = {result}, for {context}");
+
         }
     }
 }
