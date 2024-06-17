@@ -74,7 +74,10 @@
 
         public void Resize(double xFactor, double yFactor)
         {
-             
+            foreach (var shape in selection)
+            {
+                shape.Resize(xFactor, yFactor);
+            }
 
         }
     }

@@ -31,7 +31,27 @@
             shape.Move(-dx, -dy);
         }
     }
+    class ResizeShapeCommand : ICommand
+    {
+        public ResizeShapeCommand(IShape shape, double xFactor, double yFactor)
+        {
+            this.shape = shape;
+            this.xFactor = xFactor;
+            this.yFactor = yFactor;
+        }
+        private readonly IShape shape;
+        private readonly double xFactor;
+        private readonly double yFactor;
+        public void Execute()
+        {
+            shape.Resize(xFactor, yFactor);
+        }
 
+        public void Undo()
+        {
+            shape.Resize(1 / xFactor, 1 / yFactor);
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -55,12 +75,12 @@
             cmd.Undo();
 
             Console.WriteLine("Execute resize shape command");
-            var resizeComand= new ResizeShapeCommand(sel, 2, 4);
-            resizeComand.Execute();
+            var resizeCommand = new ResizeShapeCommand(sel, 2, 4); 
+            resizeCommand.Execute();
             
             Console.WriteLine("Undo resize shape command");
             
-            resizeComand.Undo();
+            resizeCommand.Undo();
 
 
 
